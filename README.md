@@ -42,7 +42,7 @@ node --version  # Should output v20.15.0
 ### 2. Clone the repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/anveshane/satvicfoods.git
 cd satvicfoods
 ```
 
