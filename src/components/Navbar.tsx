@@ -29,7 +29,7 @@ export default function Navbar() {
         </motion.div>
 
         <div className="hidden md:flex gap-8 items-center">
-          {["Home", "About Us", "Contact Us"].map((item, index) => (
+          {["Home", "About Us", "Products"].map((item, index) => (
             <motion.div
               key={item}
               initial={{ opacity: 0, y: -10 }}
@@ -60,7 +60,7 @@ export default function Navbar() {
               asChild
               className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white shadow-green font-semibold"
             >
-              <a href="tel:+919448133201">Call Us</a>
+              <a href="tel:+919448133201">Contact Us</a>
             </Button>
           </motion.div>
         </div>
@@ -107,7 +107,7 @@ export default function Navbar() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="md:hidden glass-navbar border-t border-green-100/50 px-4 py-4 flex flex-col gap-4"
           >
-            {["Home", "About Us", "Contact Us"].map((item, index) => (
+            {["Home", "About Us", "Products"].map((item, index) => (
               <motion.div
                 key={item}
                 initial={{ opacity: 0, x: -20 }}
@@ -136,7 +136,7 @@ export default function Navbar() {
                 asChild
                 className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white shadow-green font-semibold w-full"
               >
-                <a href="tel:+919448133201">Call Us</a>
+                <a href="tel:+919448133201">Contact Us</a>
               </Button>
             </motion.div>
           </motion.div>

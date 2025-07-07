@@ -36,9 +36,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-organic texture-organic overflow-hidden">
-      {/* Subtle animated background layer */}
-      <div className="absolute inset-0 bg-floating-shapes opacity-30" />
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Background now inherited from layout */}
 
       {/* Main Content Container */}
       <div className="relative flex flex-col md:flex-row items-center justify-between gap-12 pt-24 pb-16 px-4 sm:px-8 max-w-7xl mx-auto z-10">
