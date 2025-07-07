@@ -1,51 +1,35 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Shield, CheckCircle, Globe } from "lucide-react";
+import Image from "next/image";
 
 const certifications = [
   {
     name: "FSSAI",
-    icon: Shield,
-    color: "text-blue-600",
-    bgColor: "from-blue-100 to-blue-200",
+    image: "/fssai.png",
+    alt: "FSSAI Certification",
   },
   {
     name: "Unilever",
-    icon: Award,
-    color: "text-green-600",
-    bgColor: "from-green-100 to-green-200",
+    image: "/unilever.png",
+    alt: "Unilever Partnership",
   },
   {
-    name: "ISO 22000",
-    icon: CheckCircle,
-    color: "text-purple-600",
-    bgColor: "from-purple-100 to-purple-200",
+    name: "FSSC 22000",
+    image: "/fssc.png",
+    alt: "FSSC 22000 Certification",
   },
   {
-    name: "HACCP",
-    icon: Shield,
-    color: "text-orange-600",
-    bgColor: "from-orange-100 to-orange-200",
-  },
-  {
-    name: "Export License",
-    icon: Globe,
-    color: "text-indigo-600",
-    bgColor: "from-indigo-100 to-indigo-200",
-  },
-  {
-    name: "Organic",
-    icon: CheckCircle,
-    color: "text-emerald-600",
-    bgColor: "from-emerald-100 to-emerald-200",
+    name: "FDA",
+    image: "/fda.png",
+    alt: "FDA Approval",
   },
 ];
 
 export default function CertificationsSection() {
   return (
-    <section className="py-12 relative overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
+    <section className="py-4 relative overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12">
         {/* Simple Certifications Grid */}
         <div className="flex justify-center items-center">
           <div className="flex flex-wrap justify-center gap-6 md:gap-8">
@@ -56,13 +40,20 @@ export default function CertificationsSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.05 }}
                 className="group flex flex-col items-center"
               >
                 <div
-                  className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${cert.bgColor} rounded-full mb-2 group-hover:shadow-lg transition-all duration-300`}
+                  className={`relative w-16 h-16 mb-2 p-3 bg-white shadow-sm group-hover:shadow-md transition-all duration-300 ${
+                    cert.name === "FSSC 22000" ? "rounded-full" : "rounded-lg"
+                  }`}
                 >
-                  <cert.icon size={24} className={cert.color} />
+                  <Image
+                    src={cert.image}
+                    alt={cert.alt}
+                    fill
+                    className="object-contain"
+                  />
                 </div>
                 <span className="text-xs font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
                   {cert.name}

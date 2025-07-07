@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 
 export default function AboutUsPage() {
   return (
-    <main className="min-h-screen pt-16">
+    <main className="min-h-screen pt-20">
       <AboutHero />
       <AboutJourney />
       <AboutValues />

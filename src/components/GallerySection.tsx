@@ -85,12 +85,12 @@ export default function GallerySection() {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-12 relative overflow-hidden">
       {/* Background inherited from layout */}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

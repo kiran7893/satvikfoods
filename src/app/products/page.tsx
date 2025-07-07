@@ -10,7 +10,7 @@ import { products } from "@/data/products";
 
 export default function ProductsPage() {
   return (
-    <main className="min-h-screen pt-16">
+    <main className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="py-8 lg:py-10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">

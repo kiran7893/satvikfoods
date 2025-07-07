@@ -16,7 +16,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="w-full glass-navbar fixed top-0 left-0 z-50 border-b border-green-100/50"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between h-20">
         <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
           <Link
             href="/"
@@ -105,7 +105,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden glass-navbar border-t border-green-100/50 px-4 py-4 flex flex-col gap-4"
+            className="md:hidden glass-navbar border-t border-green-100/50 px-6 py-6 flex flex-col gap-4"
           >
             {["Home", "About Us", "Products"].map((item, index) => (
               <motion.div

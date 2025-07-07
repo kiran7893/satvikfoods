@@ -5,15 +5,11 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowLeft,
   Star,
-  Globe,
   Mail,
   Phone,
-  MapPin,
-  Thermometer,
   CheckCircle,
   Package,
   Eye,
-  Leaf,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -35,7 +31,7 @@ export default function ProductPage({ params }: ProductPageProps) {
   }
 
   return (
-    <main className="min-h-screen pt-16">
+    <main className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="py-8 lg:py-10 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
@@ -241,235 +237,6 @@ export default function ProductPage({ params }: ProductPageProps) {
           </div>
         </div>
       </section>
-
-      {/* Specifications */}
-      {(product.grades || product.sizes) && (
-        <section className="py-16 bg-gradient-to-br from-green-50/50 to-white/50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-                Product Specifications
-              </h2>
-              <p className="text-lg text-gray-600">
-                Detailed grading and sizing information for our{" "}
-                {product.name.toLowerCase()}
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {product.grades && (
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
-                  className="glass-card rounded-xl p-6"
-                >
-                  <h3 className="text-xl font-semibold text-gray-900 mb-6">
-                    Grading Information
-                  </h3>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr className="border-b border-gray-200">
-                          <th className="text-left py-2 font-semibold text-gray-900">
-                            Grade
-                          </th>
-                          <th className="text-left py-2 font-semibold text-gray-900">
-                            Weight
-                          </th>
-                          <th className="text-left py-2 font-semibold text-gray-900">
-                            Avg Fruits/KG
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {product.grades.map((grade, i) => (
-                          <tr key={i} className="border-b border-gray-100">
-                            <td className="py-2 text-gray-700">
-                              {grade.grade}
-                            </td>
-                            <td className="py-2 text-gray-700">
-                              {grade.weight}
-                            </td>
-                            <td className="py-2 text-gray-700">
-                              {grade.averageFruits}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </motion.div>
-              )}
-
-              {product.sizes && (
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: true }}
-                  className="glass-card rounded-xl p-6"
-                >
-                  <h3 className="text-xl font-semibold text-gray-900 mb-6">
-                    Size Specifications
-                  </h3>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr className="border-b border-gray-200">
-                          <th className="text-left py-2 font-semibold text-gray-900">
-                            Size
-                          </th>
-                          <th className="text-left py-2 font-semibold text-gray-900">
-                            Length
-                          </th>
-                          <th className="text-left py-2 font-semibold text-gray-900">
-                            Avg Fruits/KG
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {product.sizes.map((size, i) => (
-                          <tr key={i} className="border-b border-gray-100">
-                            <td className="py-2 text-gray-700">{size.size}</td>
-                            <td className="py-2 text-gray-700">
-                              {size.length}
-                            </td>
-                            <td className="py-2 text-gray-700">
-                              {size.averageFruits}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </motion.div>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Growing Information */}
-      {product.growingInfo && (
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-                  Growing Information
-                </h2>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-3">
-                    <Thermometer className="text-green-600 mt-1" size={20} />
-                    <div>
-                      <h3 className="font-semibold text-gray-900">
-                        Temperature Requirements
-                      </h3>
-                      <p className="text-gray-600">
-                        {product.growingInfo.temperature}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <MapPin className="text-green-600 mt-1" size={20} />
-                    <div>
-                      <h3 className="font-semibold text-gray-900">
-                        Growing Regions
-                      </h3>
-                      <p className="text-gray-600">
-                        {product.growingInfo.regions.join(", ")}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Leaf className="text-green-600 mt-1" size={20} />
-                    <div>
-                      <h3 className="font-semibold text-gray-900">
-                        Harvesting
-                      </h3>
-                      <p className="text-gray-600">
-                        {product.growingInfo.harvesting}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="glass-card rounded-xl p-8"
-              >
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">
-                  Export Markets
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {product.markets.map((market, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2 text-gray-700"
-                    >
-                      <Globe size={16} className="text-green-600" />
-                      <span>{market}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {product.nutritionalInfo && (
-                  <div className="mt-8 pt-6 border-t border-gray-200">
-                    <h4 className="font-semibold text-gray-900 mb-4">
-                      Nutritional Information
-                    </h4>
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <span className="text-gray-600">Calories: </span>
-                        <span className="font-medium">
-                          {product.nutritionalInfo.calories}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="text-gray-600">Protein: </span>
-                        <span className="font-medium">
-                          {product.nutritionalInfo.protein}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="text-gray-600">Fiber: </span>
-                        <span className="font-medium">
-                          {product.nutritionalInfo.fiber}
-                        </span>
-                      </div>
-                      <div>
-                        <span className="text-gray-600">Vitamins: </span>
-                        <span className="font-medium">
-                          {product.nutritionalInfo.vitamins.join(", ")}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </motion.div>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Related Products */}
       <section className="py-16 bg-gradient-to-br from-green-50/50 to-white/50">

@@ -40,7 +40,7 @@ export default function Hero() {
       {/* Background now inherited from layout */}
 
       {/* Main Content Container */}
-      <div className="relative flex flex-col md:flex-row items-center justify-between gap-12 pt-24 pb-16 px-4 sm:px-8 max-w-7xl mx-auto z-10">
+      <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 pt-12 pb-8 px-6 sm:px-12 max-w-7xl mx-auto z-10">
         {/* Floating Background Elements - Enhanced visibility */}
         {floatingIcons.map(({ Icon, delay, x, y }, i) => (
           <motion.div
@@ -134,7 +134,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              className="flex flex-col sm:flex-row gap-4 pt-6"
             >
               <motion.div
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -181,7 +181,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
-            className="flex gap-8 pt-8 border-t border-green-100"
+            className="flex gap-8 pt-6 border-t border-green-100"
           >
             {[
               { number: "2000+", label: "Partner Farms" },
@@ -258,7 +258,7 @@ export default function Hero() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 }}
-                      className="absolute bottom-4 left-4 text-white font-semibold text-lg drop-shadow-lg glass-card px-3 py-1 rounded-lg"
+                      className="absolute bottom-4 left-4 text-white font-semibold text-lg drop-shadow-lg bg-gray-900/80 backdrop-blur-sm px-3 py-1 rounded-lg"
                     >
                       {images[index].title}
                     </motion.div>
