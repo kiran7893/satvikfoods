@@ -53,7 +53,7 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-green-700 font-medium text-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-green-600 font-medium text-sm"
               >
                 <Leaf size={16} />
                 <span>About Us</span>
@@ -67,7 +67,7 @@ export default function AboutSection() {
                 className="text-3xl sm:text-4xl font-bold text-gray-900"
               >
                 Welcome to{" "}
-                <span className="bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
                   Satvic Foods
                 </span>
               </motion.h2>
@@ -108,7 +108,7 @@ export default function AboutSection() {
               <Link href="/about-us">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white shadow-green-lg font-semibold px-8 py-6 group"
+                  className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-600 text-white shadow-green-lg font-semibold px-8 py-6 group"
                 >
                   Learn More About Us
                   <ArrowRight
@@ -140,7 +140,7 @@ export default function AboutSection() {
               >
                 <div className="space-y-4">
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-lg">
-                    <feature.icon size={24} className="text-green-600" />
+                    <feature.icon size={24} className="text-green-500" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900">
                     {feature.title}

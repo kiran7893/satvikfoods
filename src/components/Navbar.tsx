@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -31,14 +32,20 @@ export default function Navbar() {
         >
           <Link href="/" className="flex items-center gap-2 lg:gap-3 group">
             <motion.div
-              className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center shadow-lg"
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.6 }}
+              className="w-8 h-8 lg:w-12 lg:h-12 relative overflow-hidden rounded-lg shadow-lg"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             >
-              <span className="text-white font-bold text-sm lg:text-lg">S</span>
+              <Image
+                src="/logo.jpg"
+                alt="Satvic Foods Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </motion.div>
             <div className="flex flex-col">
-              <span className="font-bold text-lg lg:text-xl bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent whitespace-nowrap">
+              <span className="font-bold text-lg lg:text-xl bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent whitespace-nowrap">
                 Satvic Foods
               </span>
               <span className="text-xs text-gray-600 -mt-1 hidden sm:block">
@@ -59,11 +66,11 @@ export default function Navbar() {
             >
               <Link
                 href={item.href}
-                className="relative font-medium text-gray-900 hover:text-green-700 transition-all duration-300 group px-3 py-2"
+                className="relative font-medium text-gray-900 hover:text-green-600 transition-all duration-300 group px-3 py-2"
               >
                 {item.name}
                 <motion.span
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-green-600 transition-all duration-300 group-hover:w-full rounded-full"
+                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-400 to-green-500 transition-all duration-300 group-hover:w-full rounded-full"
                   whileHover={{ width: "100%" }}
                 />
               </Link>
@@ -82,7 +89,7 @@ export default function Navbar() {
           >
             <Button
               asChild
-              className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg font-semibold px-4 lg:px-6 py-2 lg:py-3 group border-0 text-sm lg:text-base"
+              className="bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white shadow-lg font-semibold px-4 lg:px-6 py-2 lg:py-3 group border-0 text-sm lg:text-base"
             >
               <a href="tel:+919448133201" className="flex items-center gap-2">
                 <Phone size={16} className="lg:hidden" />
@@ -109,7 +116,7 @@ export default function Navbar() {
                 exit={{ rotate: 180, opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <X size={24} className="text-green-700" />
+                <X size={24} className="text-green-600" />
               </motion.div>
             ) : (
               <motion.div
@@ -119,7 +126,7 @@ export default function Navbar() {
                 exit={{ rotate: -180, opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <Menu size={24} className="text-green-700" />
+                <Menu size={24} className="text-green-600" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -146,7 +153,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center font-medium text-gray-700 hover:text-green-700 transition-colors py-3 px-4 rounded-lg hover:bg-green-50"
+                    className="flex items-center font-medium text-gray-700 hover:text-green-600 transition-colors py-3 px-4 rounded-lg hover:bg-green-50"
                     onClick={() => setOpen(false)}
                   >
                     {item.name}
@@ -162,7 +169,7 @@ export default function Navbar() {
               >
                 <Button
                   asChild
-                  className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg font-semibold w-full py-3 text-base"
+                  className="bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white shadow-lg font-semibold w-full py-3 text-base"
                 >
                   <a
                     href="tel:+919448133201"

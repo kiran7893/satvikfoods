@@ -47,7 +47,7 @@ export default function AboutJourney() {
           >
             <div className="p-6 glass-card rounded-xl">
               <div className="flex items-center gap-3 mb-4">
-                <Building className="text-green-600" size={24} />
+                <Building className="text-green-500" size={24} />
                 <h3 className="text-xl font-semibold text-gray-900">
                   Processing Excellence
                 </h3>
@@ -60,7 +60,7 @@ export default function AboutJourney() {
 
             <div className="p-6 glass-card rounded-xl">
               <div className="flex items-center gap-3 mb-4">
-                <Truck className="text-green-600" size={24} />
+                <Truck className="text-green-500" size={24} />
                 <h3 className="text-xl font-semibold text-gray-900">
                   Global Reach
                 </h3>
@@ -94,7 +94,7 @@ export default function AboutJourney() {
               className="p-6 glass-card rounded-xl"
             >
               <div className="flex items-center gap-3 mb-4">
-                <Target className="text-green-600" size={28} />
+                <Target className="text-green-500" size={28} />
                 <h3 className="text-xl font-bold text-gray-900">Our Vision</h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
@@ -111,7 +111,7 @@ export default function AboutJourney() {
               className="p-6 glass-card rounded-xl"
             >
               <div className="flex items-center gap-3 mb-4">
-                <Heart className="text-green-600" size={28} />
+                <Heart className="text-green-500" size={28} />
                 <h3 className="text-xl font-bold text-gray-900">Our Mission</h3>
               </div>
               <p className="text-gray-700 leading-relaxed">

@@ -72,7 +72,7 @@ export default function ProductsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-green-700 font-medium text-sm mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-green-600 font-medium text-sm mb-4"
           >
             <Leaf size={16} />
             <span>Our Products</span>
@@ -86,7 +86,7 @@ export default function ProductsSection() {
             className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
           >
             Premium Quality{" "}
-            <span className="bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
               Vegetables & Gherkins
             </span>
           </motion.h2>
@@ -145,7 +145,7 @@ export default function ProductsSection() {
               className="text-center p-6 glass-card rounded-xl shadow-organic cursor-pointer"
             >
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full mb-4">
-                <benefit.icon size={24} className="text-green-600" />
+                <benefit.icon size={24} className="text-green-500" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {benefit.title}
@@ -166,7 +166,7 @@ export default function ProductsSection() {
           <Link href="/products">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white shadow-green-lg font-semibold px-8 py-6 group"
+              className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-600 text-white shadow-green-lg font-semibold px-8 py-6 group"
             >
               View All Products
               <ArrowRight

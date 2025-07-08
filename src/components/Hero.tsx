@@ -283,7 +283,7 @@ export default function Hero() {
                   >
                     <Button
                       size="lg"
-                      className="bg-green-600 text-white hover:bg-green-700 px-6 py-3 text-lg"
+                      className="bg-green-500 text-white hover:bg-green-600 px-6 py-3 text-lg"
                     >
                       Explore Products
                       <ArrowRight size={20} className="ml-2" />
@@ -296,7 +296,7 @@ export default function Hero() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="border-2 border-green-600 text-green-600 hover:bg-green-50 px-6 py-3 text-lg"
+                      className="border-2 border-green-500 text-green-500 hover:bg-green-50 px-6 py-3 text-lg"
                     >
                       Contact Us
                     </Button>
