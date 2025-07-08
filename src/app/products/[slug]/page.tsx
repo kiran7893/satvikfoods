@@ -59,7 +59,7 @@ export default function ProductPage({ params }: ProductPageProps) {
           >
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 text-green-700 hover:text-green-800 transition-colors bg-white/95 backdrop-blur-md px-3 py-2 sm:px-4 sm:py-2 rounded-full shadow-md hover:shadow-lg"
+              className="inline-flex items-center gap-2 text-green-600 hover:text-green-600 transition-colors bg-white/95 backdrop-blur-md px-3 py-2 sm:px-4 sm:py-2 rounded-full shadow-md hover:shadow-lg"
             >
               <ArrowLeft size={18} />
               <span className="text-sm sm:text-base">Back to Products</span>
@@ -111,7 +111,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                 {product.features.slice(0, 5).map((feature, i) => (
                   <span
                     key={i}
-                    className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs sm:text-sm font-medium"
+                    className="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs sm:text-sm font-medium"
                   >
                     {feature}
                   </span>
@@ -121,7 +121,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 text-base"
+                  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 text-base"
                   asChild
                 >
                   <a
@@ -134,7 +134,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-green-600 text-green-600 hover:bg-green-50 px-6 py-3 text-base"
+                  className="border-green-500 text-green-500 hover:bg-green-50 px-6 py-3 text-base"
                   asChild
                 >
                   <a href="tel:+919448133201">
@@ -200,7 +200,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                   >
                     <Package
                       size={18}
-                      className="text-green-600 mt-1 flex-shrink-0"
+                      className="text-green-500 mt-1 flex-shrink-0"
                     />
                     <span className="text-gray-700 text-base">{use}</span>
                   </div>
@@ -301,7 +301,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                     </p>
                     <Button
                       size="sm"
-                      className="w-full bg-green-600 hover:bg-green-700 text-white text-sm"
+                      className="w-full bg-green-500 hover:bg-green-600 text-white text-sm"
                       asChild
                     >
                       <Link href={`/products/${relatedProduct.slug}`}>
@@ -317,7 +317,7 @@ export default function ProductPage({ params }: ProductPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 lg:py-16 bg-gradient-to-br from-green-600 to-green-700 text-white">
+      <section className="py-12 lg:py-16 bg-gradient-to-br from-green-500 to-green-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -336,7 +336,7 @@ export default function ProductPage({ params }: ProductPageProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
               <Button
                 size="lg"
-                className="bg-white text-green-700 hover:bg-green-50 font-semibold px-6 py-3 text-base"
+                className="bg-white text-green-600 hover:bg-green-50 font-semibold px-6 py-3 text-base"
                 asChild
               >
                 <a
@@ -348,7 +348,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-green-700 font-semibold px-6 py-3 text-base"
+                className="border-white text-white hover:bg-white hover:text-green-600 font-semibold px-6 py-3 text-base"
                 asChild
               >
                 <a href="tel:+919448133201">Call Now</a>

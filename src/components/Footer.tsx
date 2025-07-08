@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-green-800 to-green-900 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-green-600 to-green-700 text-white relative overflow-hidden">
       {/* Footer keeps its own background for contrast */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-12 py-12">
@@ -93,7 +93,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 pt-8 border-t border-green-700 text-center"
+          className="mt-16 pt-8 border-t border-green-600 text-center"
         >
           <p className="text-green-200 flex items-center justify-center gap-2 flex-wrap">
             Copyright 2018 @ Satvic Foods Private Limited

@@ -44,7 +44,7 @@ export default function AboutHero() {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-green-700 hover:text-green-800 transition-colors bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm"
+            className="inline-flex items-center gap-2 text-green-600 hover:text-green-600 transition-colors bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm"
           >
             <ArrowLeft size={20} />
             <span>Back to Home</span>
@@ -60,7 +60,7 @@ export default function AboutHero() {
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             About{" "}
-            <span className="bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
               Satvic Foods
             </span>
           </h1>
@@ -83,9 +83,9 @@ export default function AboutHero() {
               className="text-center p-6 glass-card rounded-xl"
             >
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full mb-4">
-                <stat.icon size={28} className="text-green-600" />
+                <stat.icon size={28} className="text-green-500" />
               </div>
-              <div className="text-3xl font-bold text-green-700 mb-2">
+              <div className="text-3xl font-bold text-green-600 mb-2">
                 {stat.number}
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">

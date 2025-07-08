@@ -18,7 +18,7 @@ export default function NotFound() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild className="bg-green-600 hover:bg-green-700">
+          <Button asChild className="bg-green-500 hover:bg-green-600">
             <Link href="/products">
               <ArrowLeft size={16} className="mr-2" />
               Back to Products

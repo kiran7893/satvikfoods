@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function AboutCTA() {
   return (
-    <section className="py-20 bg-gradient-to-br from-green-600 to-green-700 text-white">
+    <section className="py-20 bg-gradient-to-br from-green-500 to-green-600 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -27,7 +27,7 @@ export default function AboutCTA() {
             <Link href="/products">
               <Button
                 size="lg"
-                className="bg-white text-green-700 hover:bg-green-50 font-semibold px-8 py-3"
+                className="bg-white text-green-600 hover:bg-green-50 font-semibold px-8 py-3"
               >
                 Explore Our Products
               </Button>
@@ -35,7 +35,7 @@ export default function AboutCTA() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-green-700 font-semibold px-8 py-3"
+              className="border-white text-white hover:bg-white hover:text-green-600 font-semibold px-8 py-3"
               asChild
             >
               <a href="mailto:bhat@satvicfoods.in">Get In Touch</a>

@@ -69,9 +69,9 @@
   --chart-3: 197 37% 24%;
   --chart-4: 43 74% 66%;
   --chart-5: 27 87% 67%;
-  --color-primary: #16a34a; /* Tailwind green-600 */
-  --color-primary-light: #22c55e; /* Tailwind green-500 */
-  --color-primary-dark: #15803d; /* Tailwind green-700 */
+  --color-primary: #22c55e; /* Tailwind green-500 */
+  --color-primary-light: #16a34a; /* Tailwind green-600 */
+  --color-primary-dark: #16a34a; /* Tailwind green-600 */
   --color-accent: #84cc16; /* Tailwind lime-500 */
   --color-bg: #fefffe;
   --color-text: #0f172a;

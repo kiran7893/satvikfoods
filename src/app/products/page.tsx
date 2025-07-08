@@ -23,7 +23,7 @@ export default function ProductsPage() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-green-700 hover:text-green-800 transition-colors bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm"
+              className="inline-flex items-center gap-2 text-green-600 hover:text-green-600 transition-colors bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm"
             >
               <ArrowLeft size={20} />
               <span>Back to Home</span>
@@ -38,7 +38,7 @@ export default function ProductsPage() {
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               Our{" "}
-              <span className="bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
                 Products
               </span>
             </h1>
@@ -100,7 +100,7 @@ export default function ProductsPage() {
                       {product.features.slice(0, 3).map((feature, i) => (
                         <span
                           key={i}
-                          className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full"
+                          className="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full"
                         >
                           {feature}
                         </span>
@@ -116,7 +116,7 @@ export default function ProductsPage() {
                   <div className="flex flex-col sm:flex-row gap-2">
                     <Button
                       asChild
-                      className="flex-1 bg-green-600 hover:bg-green-700 text-white"
+                      className="flex-1 bg-green-500 hover:bg-green-600 text-white"
                     >
                       <Link href={`/products/${product.slug}`}>
                         <Eye size={16} className="mr-2" />
@@ -126,7 +126,7 @@ export default function ProductsPage() {
                     <Button
                       asChild
                       variant="outline"
-                      className="flex-1 border-green-600 text-green-600 hover:bg-green-50"
+                      className="flex-1 border-green-500 text-green-500 hover:bg-green-50"
                     >
                       <a
                         href={`mailto:bhat@satvicfoods.in?subject=Inquiry for ${product.name}`}
@@ -144,7 +144,7 @@ export default function ProductsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-green-600 to-green-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-green-500 to-green-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -163,7 +163,7 @@ export default function ProductsPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
               <Button
                 size="lg"
-                className="bg-white text-green-700 hover:bg-green-50 font-semibold px-8 py-3"
+                className="bg-white text-green-600 hover:bg-green-50 font-semibold px-8 py-3"
                 asChild
               >
                 <a href="mailto:bhat@satvicfoods.in">Get Quote</a>
@@ -171,7 +171,7 @@ export default function ProductsPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-green-700 font-semibold px-8 py-3"
+                className="border-white text-white hover:bg-white hover:text-green-600 font-semibold px-8 py-3"
                 asChild
               >
                 <a href="tel:+919448133201">Call Us</a>

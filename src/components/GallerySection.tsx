@@ -7,47 +7,53 @@ import { useState, useEffect } from "react";
 
 const galleryImages = [
   {
-    src: "/gherkin.jpg",
-    alt: "Premium Gherkins Processing",
-    title: "Premium Gherkins",
+    src: "/awards-1.jpg",
+    alt: "Food Safety Excellence Award",
+    title: "Food Safety Excellence",
     description:
-      "Fresh gherkins being processed in our state-of-the-art facility with international standards",
+      "Recognized for maintaining highest food safety standards and quality management systems",
   },
   {
-    src: "/jalapeno.jpg",
-    alt: "Quality Jalapenos",
-    title: "Quality Jalapenos",
+    src: "/awards-2.jpg",
+    alt: "International Quality Certification",
+    title: "International Quality Certification",
     description:
-      "Hand-selected jalapenos ensuring optimal heat and flavor for global markets",
+      "Certified for excellence in international food processing and export quality standards",
   },
   {
-    src: "/baby-corn.jpg",
-    alt: "Baby Corn Harvest",
-    title: "Baby Corn Harvest",
+    src: "/awards-3.jpg",
+    alt: "Industry Leadership Award",
+    title: "Industry Leadership Recognition",
     description:
-      "Fresh baby corn harvested at peak tenderness from our partner farms",
+      "Honored for outstanding contribution to the food processing industry and innovation",
   },
   {
-    src: "/cherry-tomato.jpg",
-    alt: "Cherry Tomato Production",
-    title: "Cherry Tomato Production",
+    src: "/awards-4.jpg",
+    alt: "Export Excellence Award",
+    title: "Export Excellence Achievement",
     description:
-      "Vibrant cherry tomatoes packed with natural sweetness and nutrients",
+      "Acknowledged for exceptional performance in international food exports and trade",
   },
   {
-    src: "/red-paprika.jpg",
-    alt: "Red Paprika Quality",
-    title: "Red Paprika Excellence",
+    src: "/awards-5.jpg",
+    alt: "Quality Management Certification",
+    title: "Quality Management Excellence",
     description:
-      "Premium red paprika showcasing rich color and authentic flavor",
+      "Certified for implementing world-class quality management systems and processes",
   },
-  // Adding a 6th image placeholder - you can replace with actual company image
   {
-    src: "/gherkin.jpg", // Using gherkin as placeholder for now
-    alt: "Satvic Foods Facility",
-    title: "Our Manufacturing Facility",
+    src: "/awards-6.jpg",
+    alt: "Agricultural Innovation Award",
+    title: "Agricultural Innovation Recognition",
     description:
-      "Modern processing facility located 50 KMs from Bengaluru International Airport",
+      "Recognized for innovative approaches in agricultural processing and sustainability",
+  },
+  {
+    src: "/awards-7.jpg",
+    alt: "Business Excellence Award",
+    title: "Business Excellence Achievement",
+    description:
+      "Honored for outstanding business practices and contribution to the food industry",
   },
 ];
 
@@ -96,10 +102,10 @@ export default function GallerySection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-green-700 font-medium text-sm mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-green-600 font-medium text-sm mb-4"
           >
             <Leaf size={16} />
-            <span>Gallery</span>
+            <span>Awards & Excellence</span>
           </motion.div>
 
           <motion.h2
@@ -109,9 +115,9 @@ export default function GallerySection() {
             viewport={{ once: true }}
             className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
           >
-            Our Premium{" "}
-            <span className="bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent">
-              Product Gallery
+            Our Awards &{" "}
+            <span className="bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
+              Excellence Recognition
             </span>
           </motion.h2>
 
@@ -122,8 +128,9 @@ export default function GallerySection() {
             viewport={{ once: true }}
             className="text-lg text-gray-600 max-w-2xl mx-auto"
           >
-            Discover our world-class facilities and premium products that make
-            us a trusted partner for global food distributors and retailers.
+            Celebrating our commitment to excellence through industry
+            recognition, certifications, and awards that validate our dedication
+            to quality and innovation.
           </motion.p>
         </div>
 

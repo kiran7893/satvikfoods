@@ -62,7 +62,7 @@ export default function AboutValues() {
               className="text-center p-6 glass-card rounded-xl"
             >
               <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-full mb-4">
-                <value.icon size={20} className="text-green-600" />
+                <value.icon size={20} className="text-green-500" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {value.title}
@@ -93,7 +93,7 @@ export default function AboutValues() {
               <div className="space-y-3">
                 {certifications.map((cert) => (
                   <div key={cert.name} className="flex items-center gap-3">
-                    <CheckCircle className="text-green-600" size={16} />
+                    <CheckCircle className="text-green-500" size={16} />
                     <div>
                       <span className="font-semibold text-gray-900">
                         {cert.name}
@@ -139,7 +139,7 @@ export default function AboutValues() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Users className="text-green-600 mt-1" size={16} />
+                  <Users className="text-green-500 mt-1" size={16} />
                   <div>
                     <h4 className="font-semibold text-gray-900">
                       Community Development
