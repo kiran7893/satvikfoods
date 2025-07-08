@@ -15,7 +15,11 @@ export const metadata: Metadata = {
     "Satvic Foods is a leading producer and exporter of Gherkins, Jalapeños, Baby Corn, Cherry Tomatoes, Red Paprika, and more. Sustainable farming, quality assurance, and global reach.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body

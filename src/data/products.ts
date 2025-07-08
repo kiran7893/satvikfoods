@@ -1,22 +1,3 @@
-export interface ProductGrade {
-  grade: string;
-  weight: string;
-  averageFruits: string;
-  description?: string;
-}
-
-export interface ProductSize {
-  size: string;
-  length: string;
-  averageFruits: string;
-}
-
-export interface HealthBenefit {
-  icon: string;
-  title: string;
-  description: string;
-}
-
 export interface Product {
   id: string;
   slug: string;
@@ -26,21 +7,7 @@ export interface Product {
   fullDescription: string;
   features: string[];
   uses: string[];
-  healthBenefits: HealthBenefit[];
-  grades?: ProductGrade[];
-  sizes?: ProductSize[];
-  markets: string[];
-  growingInfo?: {
-    temperature: string;
-    regions: string[];
-    harvesting: string;
-  };
-  nutritionalInfo?: {
-    calories: string;
-    protein: string;
-    fiber: string;
-    vitamins: string[];
-  };
+  healthBenefits: { icon: string; title: string; description: string }[];
 }
 
 export const products: Product[] = [
@@ -99,37 +66,6 @@ export const products: Product[] = [
         description: "The salt content helps satisfy your salt cravings",
       },
     ],
-    grades: [
-      { grade: "300+", weight: "Below 3.3g", averageFruits: ">330" },
-      { grade: "300/450", weight: "2.2 to 3.3g", averageFruits: "375-425" },
-      { grade: "150/300", weight: "3.4 to 6.6g", averageFruits: "195-240" },
-      { grade: "120/150", weight: "6.7 to 8.3g", averageFruits: "130-145" },
-      { grade: "80/150", weight: "6.7 to 12.5g", averageFruits: "90-130" },
-      { grade: "60/160", weight: "Below 20.6mm", averageFruits: "100-120" },
-      { grade: "30/60", weight: "16.6 to 33.3g", averageFruits: "40-50" },
-      { grade: "20/30", weight: "33.4 to 50g", averageFruits: "23-27" },
-      { grade: "10/20", weight: "50.1 to 100g", averageFruits: "13-17" },
-      { grade: "5/10", weight: "100.1 to 200g", averageFruits: "8-12" },
-    ],
-    sizes: [
-      { size: "3-6", length: "3cm to 6cm", averageFruits: "80 to 130" },
-      { size: "6-9", length: "6cm to 9cm", averageFruits: "35 to 50" },
-      { size: "9-12", length: "9cm to 12cm", averageFruits: "13 to 20" },
-      { size: "8-10", length: "8cm to 10cm", averageFruits: "23 to 27" },
-      { size: "5-8", length: "5cm to 8cm", averageFruits: "60-80" },
-    ],
-    markets: ["Europe", "America", "Australia", "Asia", "Middle East"],
-    growingInfo: {
-      temperature: "15 to 35 degrees Celsius",
-      regions: ["Tamil Nadu", "Andhra Pradesh", "Karnataka"],
-      harvesting: "Up to three crops annually",
-    },
-    nutritionalInfo: {
-      calories: "16 per 100g",
-      protein: "0.8g",
-      fiber: "1.2g",
-      vitamins: ["Vitamin K", "Vitamin C", "Potassium", "Antioxidants"],
-    },
   },
   {
     id: "2",
@@ -179,24 +115,6 @@ export const products: Product[] = [
         description: "Natural compounds may help with pain management",
       },
     ],
-    grades: [
-      { grade: "Extra Large", weight: "15-20g", averageFruits: "50-60" },
-      { grade: "Large", weight: "10-15g", averageFruits: "65-85" },
-      { grade: "Medium", weight: "7-10g", averageFruits: "90-120" },
-      { grade: "Small", weight: "5-7g", averageFruits: "125-165" },
-    ],
-    markets: ["North America", "Europe", "Middle East", "Asia", "Australia"],
-    growingInfo: {
-      temperature: "20 to 30 degrees Celsius",
-      regions: ["Karnataka", "Andhra Pradesh", "Tamil Nadu"],
-      harvesting: "Multiple harvests per season",
-    },
-    nutritionalInfo: {
-      calories: "29 per 100g",
-      protein: "0.9g",
-      fiber: "2.8g",
-      vitamins: ["Vitamin C", "Vitamin A", "Folate", "Potassium"],
-    },
   },
   {
     id: "3",
@@ -246,23 +164,6 @@ export const products: Product[] = [
         description: "Contains phosphorus and magnesium for bone strength",
       },
     ],
-    grades: [
-      { grade: "Premium", weight: "8-12cm", averageFruits: "80-100" },
-      { grade: "Standard", weight: "6-8cm", averageFruits: "100-120" },
-      { grade: "Small", weight: "4-6cm", averageFruits: "120-150" },
-    ],
-    markets: ["Asia", "Europe", "America", "Australia", "Middle East"],
-    growingInfo: {
-      temperature: "25 to 35 degrees Celsius",
-      regions: ["Karnataka", "Tamil Nadu", "Andhra Pradesh"],
-      harvesting: "Harvested before full maturity",
-    },
-    nutritionalInfo: {
-      calories: "23 per 100g",
-      protein: "2.9g",
-      fiber: "2.4g",
-      vitamins: ["Vitamin A", "Vitamin C", "Folate", "Thiamine"],
-    },
   },
   {
     id: "4",
@@ -312,29 +213,6 @@ export const products: Product[] = [
         description: "Folate supports healthy cell division",
       },
     ],
-    grades: [
-      { grade: "Extra Large", weight: "25-30g", averageFruits: "35-40" },
-      { grade: "Large", weight: "20-25g", averageFruits: "40-50" },
-      { grade: "Medium", weight: "15-20g", averageFruits: "50-65" },
-      { grade: "Small", weight: "10-15g", averageFruits: "65-85" },
-    ],
-    markets: [
-      "Global markets",
-      "Premium restaurants",
-      "Retail chains",
-      "Food service",
-    ],
-    growingInfo: {
-      temperature: "18 to 28 degrees Celsius",
-      regions: ["Karnataka", "Tamil Nadu", "Maharashtra"],
-      harvesting: "Continuous harvest throughout season",
-    },
-    nutritionalInfo: {
-      calories: "18 per 100g",
-      protein: "0.9g",
-      fiber: "1.2g",
-      vitamins: ["Vitamin C", "Vitamin K", "Potassium", "Lycopene"],
-    },
   },
   {
     id: "5",
@@ -384,23 +262,6 @@ export const products: Product[] = [
         description: "Antioxidants support cognitive function",
       },
     ],
-    grades: [
-      { grade: "Premium", weight: "80-120g", averageFruits: "15-20" },
-      { grade: "Standard", weight: "60-80g", averageFruits: "20-25" },
-      { grade: "Commercial", weight: "40-60g", averageFruits: "25-35" },
-    ],
-    markets: ["Europe", "America", "Asia", "Middle East", "Africa"],
-    growingInfo: {
-      temperature: "20 to 30 degrees Celsius",
-      regions: ["Karnataka", "Andhra Pradesh", "Tamil Nadu"],
-      harvesting: "Harvested when fully mature and red",
-    },
-    nutritionalInfo: {
-      calories: "31 per 100g",
-      protein: "1.9g",
-      fiber: "3.9g",
-      vitamins: ["Vitamin A", "Vitamin C", "Vitamin E", "Potassium"],
-    },
   },
 ];
 
