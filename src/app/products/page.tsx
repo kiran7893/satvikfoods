@@ -11,7 +11,7 @@ import ProductsHero from "@/components/ProductsHero";
 
 export default function ProductsPage() {
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <ProductsHero />
 
@@ -107,8 +107,18 @@ export default function ProductsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-green-500 to-green-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 text-center">
+      <section className="relative py-20 text-white overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/aboutus-7.jpg"
+            alt="Global Distribution Network"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-green-600/90 via-green-500/80 to-green-600/90" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -9,44 +9,36 @@ const facilityFeatures = [
     icon: Factory,
     title: "Processing Units",
     description: "State-of-the-art processing facilities with advanced technology",
-    image: "/aboutus-6.jpg",
   },
   {
     icon: Settings,
     title: "Quality Control",
     description: "In-house laboratory with dedicated testing and quality teams",
-    image: "/aboutus-8.jpg",
   },
   {
     icon: Truck,
     title: "Packaging & Storage",
     description: "Modern packaging systems and temperature-controlled storage",
-    image: "/aboutus-9.jpg",
   },
   {
     icon: Award,
     title: "Certifications",
     description: "International certifications ensuring global quality standards",
-    image: "/aboutus-10.jpg",
   },
 ];
 
 const facilityImages = [
-  "/aboutus-1.jpg",
   "/aboutus-2.jpg", 
   "/aboutus-3.jpg",
   "/aboutus-4.jpg",
-  "/aboutus-5.jpg",
-  "/aboutus-11.jpg",
-  "/aboutus-12.jpg",
-  "/aboutus-13.jpg",
-  "/aboutus-14.jpg",
-  "/aboutus-15.jpg",
+  "/aboutus-6.jpg",
+  "/aboutus-9.jpg",
+ 
 ];
 
 export default function AboutFacility() {
   return (
-    <section className="py-20">
+    <section className="py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <motion.div
@@ -76,16 +68,9 @@ export default function AboutFacility() {
               viewport={{ once: true }}
               className="text-center p-6 glass-card rounded-xl hover:scale-105 transition-transform"
             >
-              <div className="relative mb-4">
-                <Image
-                  src={feature.image}
-                  alt={feature.title}
-                  width={250}
-                  height={150}
-                  className="rounded-lg shadow-organic"
-                />
-                <div className="absolute -top-3 -right-3 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                  <feature.icon size={24} className="text-white" />
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-md">
+                  <feature.icon size={28} className="text-white" />
                 </div>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -174,17 +159,17 @@ export default function AboutFacility() {
             </div>
             
             <div className="relative">
-              <Image
-                src="/aboutus-7.jpg"
-                alt="Strategic Location"
-                width={500}
-                height={300}
-                className="rounded-xl shadow-organic"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl" />
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="font-semibold">Bengaluru International Airport</h4>
-                <p className="text-sm">50 KM Distance</p>
+              <div className="rounded-xl overflow-hidden w-full h-[300px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62219.96496404944!2d77.992018!3d13.3176155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb20116d8cb2847%3A0x4e5ca47683616d24!2sSatvic%20Foods%20Private%20Limited!5e0!3m2!1sen!2sin!4v1688999999999!5m2!1sen!2sin"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Satvic Foods Location"
+                ></iframe>
               </div>
             </div>
           </div>

@@ -6,30 +6,26 @@ import Image from "next/image";
 
 const journeySteps = [
   {
-    year: "1998",
-    title: "Foundation",
-    description: "Started with a vision to export premium Indian vegetables globally",
+    title: "Laying the Foundation",
+    description: "Satvic Foods is founded with a vision to bring the best of Indian agriculture to the world.",
     image: "/aboutus-2.jpg",
     icon: Building,
   },
   {
-    year: "2005",
-    title: "Expansion",
-    description: "Expanded processing facilities and farmer partnerships",
+    title: "Growth & Expansion",
+    description: "We expand our facilities and partner with more farmers, boosting capacity and quality.",
     image: "/aboutus-3.jpg",
     icon: Factory,
   },
   {
-    year: "2015",
-    title: "Global Reach",
-    description: "Reached 50+ countries with premium quality products",
+    title: "Global Recognition",
+    description: "Our products reach over 50 countries, earning trust for quality and reliability.",
     image: "/aboutus-4.jpg",
     icon: Globe,
   },
   {
-    year: "2023",
-    title: "Innovation",
-    description: "Leading the industry with sustainable practices and technology",
+    title: "Innovation for Tomorrow",
+    description: "We lead with sustainable farming, advanced technology, and a commitment to a greener future.",
     image: "/aboutus-5.jpg",
     icon: Target,
   },
@@ -48,24 +44,17 @@ export default function AboutJourney() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              Our Journey
+              The Satvic Foods Story
             </h2>
             <div className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Satvic Foods Private Limited stands as one of India&apos;s
-                premier exporters of preserved gherkins and allied vegetables,
-                with over 25 years of expertise in the agro-processing industry.
+                From humble beginnings to a global presence, Satvic Foods has grown through innovation, strong farmer partnerships, and a commitment to quality. Our journey reflects our passion for delivering the finest preserved vegetables to the world, while empowering local communities and embracing sustainable practices.
               </p>
-              <p className="text-gray-600 leading-relaxed">
-                Located in the heart of South India&apos;s agricultural belt,
-                our state-of-the-art processing facility is strategically
-                positioned 50 kilometers from Bengaluru International Airport,
-                ensuring efficient global distribution.
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Over the years, we have built a robust network of more than 4,000 dedicated farmers, ensuring a consistent supply of fresh produce and supporting rural livelihoods. Our focus on contract farming and sustainable agriculture has enabled us to maintain the highest standards of food safety and traceability.
               </p>
-              <p className="text-gray-600 leading-relaxed">
-                We&apos;ve built strong partnerships with over 4000 farmers
-                through our exclusive contract farming program, supported by a
-                dedicated agricultural extension team.
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Today, Satvic Foods is recognized not only for its premium products but also for its ethical business practices and commitment to environmental stewardship. We continue to innovate, adapt, and grow, always striving to exceed the expectations of our global customers.
               </p>
             </div>
           </motion.div>
@@ -83,9 +72,8 @@ export default function AboutJourney() {
                 alt="Processing Excellence"
                 width={500}
                 height={300}
-                className="rounded-xl shadow-organic"
+                className="rounded-xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl" />
               <div className="absolute bottom-4 left-4 text-white">
                 <h3 className="text-xl font-semibold">Processing Excellence</h3>
                 <p className="text-sm">State-of-the-art facilities</p>
@@ -98,9 +86,8 @@ export default function AboutJourney() {
                 alt="Global Distribution"
                 width={500}
                 height={300}
-                className="rounded-xl shadow-organic"
+                className="rounded-xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl" />
               <div className="absolute bottom-4 left-4 text-white">
                 <h3 className="text-xl font-semibold">Global Distribution</h3>
                 <p className="text-sm">Reaching 50+ countries worldwide</p>
@@ -124,34 +111,35 @@ export default function AboutJourney() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {journeySteps.map((step, index) => (
               <motion.div
-                key={step.year}
+                key={step.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
+                className="text-center flex flex-col items-center"
               >
-                <div className="relative mb-4">
+                <div className="relative mb-4 w-full">
                   <Image
                     src={step.image}
                     alt={step.title}
                     width={300}
                     height={200}
-                    className="rounded-xl shadow-organic"
+                    className="rounded-xl w-full object-cover"
                   />
                   <div className="absolute -top-3 -right-3 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
                     <step.icon size={24} className="text-white" />
                   </div>
+                  <div className="absolute bottom-0 left-0 w-full px-4 py-3 flex flex-col items-start"
+                    style={{background: 'rgba(0,0,0,0.45)', borderBottomLeftRadius: '0.75rem', borderBottomRightRadius: '0.75rem'}}>
+                    <span className="text-lg font-semibold text-white drop-shadow mb-1">{step.title}</span>
+                    <span className="text-sm text-gray-100 leading-relaxed">{step.description}</span>
+                  </div>
                 </div>
-                <div className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-2 inline-block">
-                  {step.year}
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  {step.description}
-                </p>
+                {index < journeySteps.length - 1 && (
+                  <div className="my-4 w-2/3 mx-auto">
+                    <hr className="border-t border-green-100" />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
