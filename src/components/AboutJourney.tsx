@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building, Truck, Target, Heart, Factory, Globe } from "lucide-react";
+import { Building, Target, Heart, Factory, Globe } from "lucide-react";
 import Image from "next/image";
 
 const journeySteps = [

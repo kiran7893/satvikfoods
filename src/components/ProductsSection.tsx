@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Leaf, Award, Globe, Shield } from "lucide-react";
+import { ArrowRight, Leaf } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 

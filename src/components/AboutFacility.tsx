@@ -148,8 +148,8 @@ export default function AboutFacility() {
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Strategic Location
               </h3>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                Our processing facility is strategically located in the heart of South India's 
+                              <p className="text-gray-700 mb-6 leading-relaxed">
+                Our processing facility is strategically located in the heart of South India&apos;s 
                 agricultural belt, just 50 kilometers from Bengaluru International Airport. 
                 This prime location ensures:
               </p>
