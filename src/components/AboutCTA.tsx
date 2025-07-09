@@ -3,11 +3,23 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutCTA() {
   return (
-    <section className="py-20 bg-gradient-to-br from-green-500 to-green-600 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 text-center">
+    <section className="relative py-20 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/aboutus-7.jpg"
+          alt="Global Distribution Network"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-green-600/90 via-green-500/80 to-green-600/90" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -15,7 +27,7 @@ export default function AboutCTA() {
           viewport={{ once: true }}
           className="space-y-6"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
             Partner with India&apos;s Leading Gherkin Exporter
           </h2>
           <p className="text-xl text-green-100 max-w-2xl mx-auto">
@@ -23,11 +35,28 @@ export default function AboutCTA() {
             made us the preferred choice for customers across 50+ countries
             worldwide.
           </p>
+          
+          {/* Stats Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto mt-8">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-white">25+</div>
+              <div className="text-green-200 text-sm">Years Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-white">50+</div>
+              <div className="text-green-200 text-sm">Countries Served</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-white">4000+</div>
+              <div className="text-green-200 text-sm">Partner Farmers</div>
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <Link href="/products">
               <Button
                 size="lg"
-                className="bg-white text-green-600 hover:bg-green-50 font-semibold px-8 py-3"
+                className="bg-white text-green-600 hover:bg-green-50 font-semibold px-8 py-3 shadow-lg"
               >
                 Explore Our Products
               </Button>

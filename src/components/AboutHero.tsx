@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, Users, Award, Leaf, Globe } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const companyStats = [
   {
@@ -33,8 +34,20 @@ const companyStats = [
 
 export default function AboutHero() {
   return (
-    <section className="py-8 lg:py-10 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+    <section className="relative py-8 lg:py-16 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/aboutus-1.jpg"
+          alt="Satvic Foods Processing Facility"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
         {/* Back to Home - Top Left */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -44,7 +57,7 @@ export default function AboutHero() {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-green-600 hover:text-green-600 transition-colors bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm"
+            className="inline-flex items-center gap-2 text-white hover:text-green-300 transition-colors bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20"
           >
             <ArrowLeft size={20} />
             <span>Back to Home</span>
@@ -56,16 +69,16 @@ export default function AboutHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center pt-8 mb-16"
+          className="text-center pt-16 mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
             About{" "}
-            <span className="bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent">
               Satvic Foods
             </span>
           </h1>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-green-100 max-w-3xl mx-auto leading-relaxed">
             India&apos;s leading exporter of premium pickled gherkins and
             vegetables, bringing authentic flavors to over 50 countries
             worldwide through sustainable farming practices.
@@ -80,7 +93,7 @@ export default function AboutHero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center p-6 glass-card rounded-xl"
+              className="text-center p-6 glass-card rounded-xl backdrop-blur-md bg-white/90"
             >
               <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full mb-4">
                 <stat.icon size={28} className="text-green-500" />

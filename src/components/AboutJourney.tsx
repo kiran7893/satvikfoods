@@ -1,7 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building, Truck, Target, Heart } from "lucide-react";
+import { Building, Truck, Target, Heart, Factory, Globe } from "lucide-react";
+import Image from "next/image";
+
+const journeySteps = [
+  {
+    year: "1998",
+    title: "Foundation",
+    description: "Started with a vision to export premium Indian vegetables globally",
+    image: "/aboutus-2.jpg",
+    icon: Building,
+  },
+  {
+    year: "2005",
+    title: "Expansion",
+    description: "Expanded processing facilities and farmer partnerships",
+    image: "/aboutus-3.jpg",
+    icon: Factory,
+  },
+  {
+    year: "2015",
+    title: "Global Reach",
+    description: "Reached 50+ countries with premium quality products",
+    image: "/aboutus-4.jpg",
+    icon: Globe,
+  },
+  {
+    year: "2023",
+    title: "Innovation",
+    description: "Leading the industry with sustainable practices and technology",
+    image: "/aboutus-5.jpg",
+    icon: Target,
+  },
+];
 
 export default function AboutJourney() {
   return (
@@ -45,32 +77,84 @@ export default function AboutJourney() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <div className="p-6 glass-card rounded-xl">
-              <div className="flex items-center gap-3 mb-4">
-                <Building className="text-green-500" size={24} />
-                <h3 className="text-xl font-semibold text-gray-900">
-                  Processing Excellence
-                </h3>
+            <div className="relative">
+              <Image
+                src="/aboutus-6.jpg"
+                alt="Processing Excellence"
+                width={500}
+                height={300}
+                className="rounded-xl shadow-organic"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl" />
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-xl font-semibold">Processing Excellence</h3>
+                <p className="text-sm">State-of-the-art facilities</p>
               </div>
-              <p className="text-gray-600">
-                State-of-the-art quality control measures, optimum packaging
-                systems, and in-house laboratory with dedicated testing teams.
-              </p>
             </div>
 
-            <div className="p-6 glass-card rounded-xl">
-              <div className="flex items-center gap-3 mb-4">
-                <Truck className="text-green-500" size={24} />
-                <h3 className="text-xl font-semibold text-gray-900">
-                  Global Reach
-                </h3>
+            <div className="relative">
+              <Image
+                src="/aboutus-7.jpg"
+                alt="Global Distribution"
+                width={500}
+                height={300}
+                className="rounded-xl shadow-organic"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl" />
+              <div className="absolute bottom-4 left-4 text-white">
+                <h3 className="text-xl font-semibold">Global Distribution</h3>
+                <p className="text-sm">Reaching 50+ countries worldwide</p>
               </div>
-              <p className="text-gray-600">
-                Products reach leading retail chains across America, Europe,
-                Russia, Australia, Korea, and Japan.
-              </p>
             </div>
           </motion.div>
+        </div>
+
+        {/* Timeline Journey */}
+        <div className="mb-24">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center"
+          >
+            Our Growth Timeline
+          </motion.h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {journeySteps.map((step, index) => (
+              <motion.div
+                key={step.year}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="relative mb-4">
+                  <Image
+                    src={step.image}
+                    alt={step.title}
+                    width={300}
+                    height={200}
+                    className="rounded-xl shadow-organic"
+                  />
+                  <div className="absolute -top-3 -right-3 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                    <step.icon size={24} className="text-white" />
+                  </div>
+                </div>
+                <div className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-2 inline-block">
+                  {step.year}
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Vision & Mission */}

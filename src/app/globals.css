@@ -222,6 +222,11 @@
     0 10px 20px -5px rgba(34, 197, 94, 0.1);
 }
 
+.shadow-green-xl {
+  box-shadow: 0 35px 60px -12px rgba(34, 197, 94, 0.2),
+    0 15px 25px -5px rgba(34, 197, 94, 0.15);
+}
+
 /* Utility for hero image border */
 .hero-image-border {
   border: 4px solid #bbf7d0; /* Tailwind green-100 */
@@ -367,21 +372,6 @@
 }
 
 /* ===== ENHANCED SHADOW SYSTEM ===== */
-
-.shadow-green {
-  box-shadow: 0 10px 25px -3px rgba(34, 197, 94, 0.1),
-    0 4px 6px -2px rgba(34, 197, 94, 0.05);
-}
-
-.shadow-green-lg {
-  box-shadow: 0 25px 50px -12px rgba(34, 197, 94, 0.15),
-    0 10px 20px -5px rgba(34, 197, 94, 0.1);
-}
-
-.shadow-green-xl {
-  box-shadow: 0 35px 60px -12px rgba(34, 197, 94, 0.2),
-    0 15px 25px -5px rgba(34, 197, 94, 0.15);
-}
 
 .shadow-organic {
   box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.1),
@@ -537,10 +527,10 @@
 .border-organic {
   border: 2px solid;
   border-image: linear-gradient(
-      45deg,
-      rgba(34, 197, 94, 0.3),
-      rgba(132, 204, 22, 0.2),
-      rgba(16, 185, 129, 0.3)
-    )
+    45deg,
+    rgba(34, 197, 94, 0.3),
+    rgba(132, 204, 22, 0.2),
+    rgba(16, 185, 129, 0.3)
+  )
     1;
 }

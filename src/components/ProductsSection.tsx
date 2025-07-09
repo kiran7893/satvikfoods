@@ -34,31 +34,6 @@ const products = [
   },
 ];
 
-const benefits = [
-  {
-    icon: Shield,
-    title: "Always Fresh",
-    description:
-      "Harvested and processed within 24 hours for maximum freshness",
-  },
-  {
-    icon: Award,
-    title: "Quality Standards",
-    description: "FSSAI certified with international quality assurance",
-  },
-  {
-    icon: Globe,
-    title: "Global Reach",
-    description: "Exported to 50+ countries across America, Europe, and Asia",
-  },
-  {
-    icon: Leaf,
-    title: "Natural & Healthy",
-    description:
-      "No artificial preservatives, grown using sustainable practices",
-  },
-];
-
 export default function ProductsSection() {
   return (
     <section className="py-12 relative overflow-hidden">
@@ -131,30 +106,7 @@ export default function ProductsSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Benefits */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center p-6 glass-card rounded-xl shadow-organic cursor-pointer"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full mb-4">
-                <benefit.icon size={24} className="text-green-500" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                {benefit.title}
-              </h3>
-              <p className="text-gray-600 text-sm">{benefit.description}</p>
-            </motion.div>
-          ))}
-        </div>
-
+  
         {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
