@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   const menuItems = [
     { name: "Home", href: "/" },
@@ -66,12 +68,14 @@ export default function Navbar() {
             >
               <Link
                 href={item.href}
-                className="relative font-medium text-gray-900 hover:text-green-600 transition-all duration-300 group px-3 py-2"
+                className={`relative font-medium px-3 py-2 transition-all duration-300 group
+                  ${pathname === item.href ? "text-green-600 font-bold" : "text-gray-900 hover:text-green-600"}`}
               >
                 {item.name}
-                <motion.span
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-400 to-green-500 transition-all duration-300 group-hover:w-full rounded-full"
-                  whileHover={{ width: "100%" }}
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 rounded-full transition-all duration-300
+                    ${pathname === item.href ? "w-full bg-gradient-to-r from-green-400 to-green-500" : "w-0 group-hover:w-full bg-gradient-to-r from-green-400 to-green-500"}`}
+                  style={{ height: 3 }}
                 />
               </Link>
             </motion.div>
@@ -153,7 +157,8 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center font-medium text-gray-700 hover:text-green-600 transition-colors py-3 px-4 rounded-lg hover:bg-green-50"
+                    className={`flex items-center font-medium py-3 px-4 rounded-lg transition-colors
+                      ${pathname === item.href ? "text-green-600 font-bold bg-green-50" : "text-gray-700 hover:text-green-600 hover:bg-green-50"}`}
                     onClick={() => setOpen(false)}
                   >
                     {item.name}
