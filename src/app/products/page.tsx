@@ -2,55 +2,18 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Star, Eye, Mail } from "lucide-react";
+import { Star, Eye, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import { products } from "@/data/products";
+import ProductsHero from "@/components/ProductsHero";
 
 export default function ProductsPage() {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-8 lg:py-10 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          {/* Back to Home - Top Left */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="absolute top-4 left-4 sm:left-8 z-10"
-          >
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-green-600 hover:text-green-600 transition-colors bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm"
-            >
-              <ArrowLeft size={20} />
-              <span>Back to Home</span>
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center pt-8 mb-16"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Our{" "}
-              <span className="bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
-                Products
-              </span>
-            </h1>
-
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Discover our range of premium preserved vegetables and gherkins,
-              crafted with care and delivered to global markets with
-              uncompromising quality.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <ProductsHero />
 
       {/* Products Grid */}
       <section className="py-20 bg-gradient-to-br from-green-50/50 to-white/50">
