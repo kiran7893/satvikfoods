@@ -50,7 +50,7 @@ export default function AboutJourney() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-              The Satvic Foods Story
+              Our Journey
             </h2>
             <div className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">

@@ -134,9 +134,7 @@ export default function AboutSection() {
               </motion.div>
             </div>
 
-            {/* Decorative Elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-green-200 rounded-full opacity-60 animate-float"></div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-green-300 rounded-full opacity-40 animate-float" style={{ animationDelay: '1s' }}></div>
+
           </motion.div>
 
           {/* Right Column - Content */}

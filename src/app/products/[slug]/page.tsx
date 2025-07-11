@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowLeft,
   Star,
   Mail,
   Phone,
@@ -59,22 +58,6 @@ export default function ProductPage({ params }: ProductPageProps) {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Back to Products - Top Left */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="absolute top-6 left-6 sm:left-8 z-10"
-          >
-            <Link
-              href="/products"
-              className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 transition-colors bg-white/95 backdrop-blur-md px-3 py-2 sm:px-4 sm:py-2 rounded-full shadow-premium hover:shadow-premium-lg"
-            >
-              <ArrowLeft size={18} />
-              <span className="text-sm sm:text-base">Back to Products</span>
-            </Link>
-          </motion.div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Product Image */}
             <motion.div
@@ -118,7 +101,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                   <span>Premium Product</span>
                 </motion.div>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
                   {product.name}
                 </h1>
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed">

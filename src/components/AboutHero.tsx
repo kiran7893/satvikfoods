@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, Users, Award, Leaf, Globe } from "lucide-react";
-import Link from "next/link";
+import { Users, Award, Leaf, Globe } from "lucide-react";
 import Image from "next/image";
 
 const companyStats = [
@@ -48,22 +47,6 @@ export default function AboutHero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8">
-        {/* Back to Home - Top Left */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="absolute top-4 left-4 sm:left-8 z-10"
-        >
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-white hover:text-green-300 transition-colors bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20"
-          >
-            <ArrowLeft size={20} />
-            <span>Back to Home</span>
-          </Link>
-        </motion.div>
-
         {/* Hero Content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -71,7 +54,7 @@ export default function AboutHero() {
           transition={{ duration: 0.8 }}
           className="text-center pt-16 mb-12"
         >
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
             About{" "}
             <span className="text-green-500">
               Satvic Foods

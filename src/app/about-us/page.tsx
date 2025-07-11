@@ -1,6 +1,7 @@
 "use client";
 
 import AboutHero from "@/components/AboutHero";
+import AboutFeatures from "@/components/AboutFeatures";
 import AboutJourney from "@/components/AboutJourney";
 import AboutFacility from "@/components/AboutFacility";
 import AboutCTA from "@/components/AboutCTA";
@@ -11,6 +12,7 @@ export default function AboutUsPage() {
   return (
     <main className="min-h-screen pt-16 lg:pt-20 bg-green-50">
       <AboutHero />
+      <AboutFeatures />
       <AboutJourney />
       <AboutFacility />
       {/* Preparation Section with YouTube Video */}
@@ -34,25 +36,18 @@ export default function AboutUsPage() {
               Watch the complete journey of gherkin pickle processing, from farm-fresh harvesting to hygienic sorting, brining, and final packaging for global export.
             </p>
           </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="glass-card rounded-2xl overflow-hidden shadow-premium-lg"
-          >
+         
             <div className="w-full max-w-3xl mx-auto rounded-xl overflow-hidden aspect-video">
               <iframe
                 src="https://www.youtube.com/embed/hLxb9Q7ZpRo?si=cNNilVcWHDj_minz"
                 title="Gherkin Processing Video"
-                frameBorder={0}
+               
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="w-full h-full"
               ></iframe>
             </div>
-          </motion.div>
+
         </div>
       </section>
       <AboutCTA />
