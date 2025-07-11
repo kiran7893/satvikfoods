@@ -16,7 +16,7 @@ export default function AboutCTA() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-green-600/90 via-green-500/80 to-green-600/90" />
+        <div className="absolute inset-0 bg-green-600/60" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 text-center">
@@ -27,7 +27,7 @@ export default function AboutCTA() {
           viewport={{ once: true }}
           className="space-y-6"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+                      <h2 className="text-2xl sm:text-3xl font-bold text-white">
             Partner with India&apos;s Leading Gherkin Exporter
           </h2>
           <p className="text-xl text-green-100 max-w-2xl mx-auto">

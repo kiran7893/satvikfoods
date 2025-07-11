@@ -64,20 +64,20 @@ const achievements = [
 
 export default function AboutValues() {
   return (
-    <section className="py-20 bg-gradient-to-br from-green-50/50 to-white/50">
+    <section className="py-8 lg:py-10 bg-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Core Values */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Our Core Values
-          </h2>
+        <div className="text-center mb-12">
+                                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+              Our Core Values
+            </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             The principles that guide our commitment to excellence and
             sustainability
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {coreValues.map((value, index) => (
             <motion.div
               key={value.title}
@@ -97,7 +97,7 @@ export default function AboutValues() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-4">
                 <value.icon size={20} className="text-green-500" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -109,13 +109,13 @@ export default function AboutValues() {
         </div>
 
         {/* Achievements Section */}
-        <div className="mb-20">
+        <div className="mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center"
+            className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center"
           >
             Our Achievements
           </motion.h2>
