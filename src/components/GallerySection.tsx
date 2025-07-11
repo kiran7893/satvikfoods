@@ -1,104 +1,80 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, ChevronLeft, ChevronRight, Play, Pause, Star } from "lucide-react";
+import { Award, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import useEmblaCarousel from 'embla-carousel-react';
 
 const galleryImages = [
   {
     src: "/awards-1.jpg",
     alt: "Food Safety Excellence Award",
-    title: "Food Safety Excellence",
-    description:
-      "Recognized for maintaining highest food safety standards and quality management systems",
-    year: "2024"
   },
   {
     src: "/awards-2.jpg",
     alt: "International Quality Certification",
-    title: "International Quality Certification",
-    description:
-      "Certified for excellence in international food processing and export quality standards",
-    year: "2023"
   },
   {
     src: "/awards-3.jpg",
     alt: "Industry Leadership Award",
-    title: "Industry Leadership Recognition",
-    description:
-      "Honored for outstanding contribution to the food processing industry and innovation",
-    year: "2023"
   },
   {
     src: "/awards-4.jpg",
     alt: "Export Excellence Award",
-    title: "Export Excellence Achievement",
-    description:
-      "Acknowledged for exceptional performance in international food exports and trade",
-    year: "2022"
   },
   {
     src: "/awards-5.jpg",
     alt: "Quality Management Certification",
-    title: "Quality Management Excellence",
-    description:
-      "Certified for implementing world-class quality management systems and processes",
-    year: "2022"
   },
   {
     src: "/awards-6.jpg",
     alt: "Agricultural Innovation Award",
-    title: "Agricultural Innovation Recognition",
-    description:
-      "Recognized for innovative approaches in agricultural processing and sustainability",
-    year: "2021"
   },
   {
     src: "/awards-7.jpg",
     alt: "Business Excellence Award",
-    title: "Business Excellence Achievement",
-    description:
-      "Honored for outstanding business practices and contribution to the food industry",
-    year: "2021"
   },
 ];
 
 export default function GallerySection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const AUTOPLAY_DELAY = 5000;
 
-  // Auto-slide functionality
+  // Slide change handler
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  // Autoplay logic
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!emblaApi || !isAutoPlaying) return;
+    if (autoplayRef.current) clearInterval(autoplayRef.current);
+    autoplayRef.current = setInterval(() => {
+      if (emblaApi) emblaApi.scrollNext();
+    }, AUTOPLAY_DELAY);
+    emblaApi.on('select', onSelect);
+    return () => {
+      if (autoplayRef.current) clearInterval(autoplayRef.current);
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi, onSelect, isAutoPlaying]);
 
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % galleryImages.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex(
-      (prev) => (prev - 1 + galleryImages.length) % galleryImages.length
-    );
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
+  // Navigation
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+  const scrollTo = useCallback((idx: number) => emblaApi && emblaApi.scrollTo(idx), [emblaApi]);
 
   const toggleAutoPlay = () => {
     setIsAutoPlaying(!isAutoPlaying);
   };
 
   return (
-    <section className=" bg-green-50 relative overflow-hidden">
+    <section className="bg-green-50 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-20 w-72 h-72 bg-green-200/20 rounded-full blur-3xl animate-float"></div>
@@ -156,78 +132,49 @@ export default function GallerySection() {
           viewport={{ once: true }}
           className="relative mb-8"
         >
-          {/* Main Image Container */}
-          <div className="relative w-full h-80 md:h-[600px] rounded-3xl overflow-hidden glass-card shadow-premium-lg">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="relative w-full h-full"
-            >
-              <Image
-                src={galleryImages[currentIndex].src}
-                alt={galleryImages[currentIndex].alt}
-                fill
-                className="object-cover"
-                priority
-              />
-
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 text-white">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <span className="text-green-300 font-medium">{galleryImages[currentIndex].year}</span>
+          {/* Embla Carousel */}
+          <div className="relative w-full h-80 md:h-[600px] rounded-3xl overflow-hidden glass-card shadow-premium-lg" ref={emblaRef}>
+            <div className="flex h-full">
+              {galleryImages.map((image, index) => (
+                <div
+                  key={index}
+                  className="min-w-0 flex-[0_0_100%] relative h-full"
+                  style={{ minWidth: '100%' }}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    priority={index === 0}
+                  />
                 </div>
-                
-                <motion.h3
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
-                >
-                  {galleryImages[currentIndex].title}
-                </motion.h3>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="text-green-100 text-lg lg:text-xl leading-relaxed max-w-3xl"
-                >
-                  {galleryImages[currentIndex].description}
-                </motion.p>
-              </div>
-            </motion.div>
+              ))}
+            </div>
           </div>
 
           {/* Navigation Controls */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-6 z-20">
+          <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-6 z-20">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              onClick={prevSlide}
-              className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors shadow-lg"
+              onClick={scrollPrev}
+              className="group relative inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-lg hover:bg-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
+              aria-label="Previous slide"
             >
-              <ChevronLeft size={28} />
+              <ChevronLeft className="h-6 w-6 transition-transform group-hover:-translate-x-1" />
             </motion.button>
           </div>
 
-          <div className="absolute top-1/2 -translate-y-1/2 right-6 z-20">
+          <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 right-6 z-20">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              onClick={nextSlide}
-              className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors shadow-lg"
+              onClick={scrollNext}
+              className="group relative inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-lg hover:bg-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
+              aria-label="Next slide"
             >
-              <ChevronRight size={28} />
+              <ChevronRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
             </motion.button>
           </div>
 
@@ -257,9 +204,9 @@ export default function GallerySection() {
               key={index}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => goToSlide(index)}
+              onClick={() => scrollTo(index)}
               className={`relative w-20 h-16 md:w-24 md:h-20 rounded-lg overflow-hidden transition-all duration-300 ${
-                index === currentIndex
+                index === selectedIndex
                   ? "ring-4 ring-green-500 scale-110"
                   : "ring-2 ring-white/30 hover:ring-green-300"
               }`}
@@ -270,7 +217,7 @@ export default function GallerySection() {
                 fill
                 className="object-cover"
               />
-              {index === currentIndex && (
+              {index === selectedIndex && (
                 <div className="absolute inset-0 bg-green-500/20" />
               )}
             </motion.button>

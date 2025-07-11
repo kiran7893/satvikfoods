@@ -1,10 +1,20 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight, Leaf, Factory, Award, Globe } from "lucide-react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  Leaf,
+  Award,
+  Globe,
+  CheckCircle,
+  Factory,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import useEmblaCarousel from 'embla-carousel-react';
+import { motion, AnimatePresence } from "framer-motion";
 
 // Background images for hero carousel with different content
 const heroSlides = [
@@ -14,12 +24,14 @@ const heroSlides = [
     badge: "100% Sustainable Farming",
     title: "Sourcing Straight from Farmers",
     subtitle: "Premium Quality Vegetables",
-    description: "Our wide range of premium vegetables is sourced directly from farmers, helping alleviate poverty and improve rural economies.",
+    description:
+      "Our wide range of premium vegetables is sourced directly from farmers, helping alleviate poverty and improve rural economies.",
     icon: Leaf,
-    stats: [
-      { number: "4000+", label: "Partner Farmers" },
-      { number: "25+", label: "Years Experience" },
-      { number: "100%", label: "Natural Process" },
+    features: [
+      "Direct from Farm",
+      "Premium Quality",
+      "Global Export",
+      "Sustainable Practices",
     ],
   },
   {
@@ -28,12 +40,14 @@ const heroSlides = [
     badge: "Advanced Processing",
     title: "Leading Processor of South India",
     subtitle: "State-of-the-Art Facilities",
-    description: "We process premium vegetables like Gherkins, Jalapeños, Baby Corn, Cherry Tomatoes, and Paprika with cutting-edge technology.",
+    description:
+      "We process premium vegetables like Gherkins, Jalapeños, Baby Corn, Cherry Tomatoes, and Paprika with cutting-edge technology.",
     icon: Factory,
-    stats: [
-      { number: "50+", label: "Countries Served" },
-      { number: "25+", label: "Years Experience" },
-      { number: "100%", label: "Quality Assured" },
+    features: [
+      "Fully Automated",
+      "Quality Assured",
+      "FSSAI Certified",
+      "Export Ready",
     ],
   },
   {
@@ -42,12 +56,14 @@ const heroSlides = [
     badge: "Farm to Table",
     title: "Farm to Fork Journey",
     subtitle: "From Field to Your Table",
-    description: "Farm to fork - Our preserved vegetables are processed from top-quality produce, ensuring 100% contamination-free products.",
+    description:
+      "Farm to fork - Our preserved vegetables are processed from top-quality produce, ensuring 100% contamination-free products.",
     icon: Award,
-    stats: [
-      { number: "25+", label: "Years Experience" },
-      { number: "50+", label: "Countries Served" },
-      { number: "100%", label: "Zero Contamination" },
+    features: [
+      "Farm Fresh",
+      "Quality Preserved",
+      "Safe Processing",
+      "Traceable Journey",
     ],
   },
   {
@@ -56,234 +72,220 @@ const heroSlides = [
     badge: "Global Distribution",
     title: "Exporting to 50+ Countries",
     subtitle: "International Standards",
-    description: "Our products are trusted in Europe, Asia, the Middle East, and Africa, adhering to global quality standards.",
+    description:
+      "Our products are trusted in Europe, Asia, the Middle East, and Africa, adhering to global quality standards.",
     icon: Globe,
-    stats: [
-      { number: "50+", label: "Countries Served" },
-      { number: "4000+", label: "Partner Farmers" },
-      { number: "100%", label: "Export Quality" },
+    features: [
+      "Global Reach",
+      "Export Quality",
+      "International Standards",
+      "Trusted Partner",
     ],
   },
 ];
 
 export default function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const AUTOPLAY_DELAY = 8000;
 
+  // Slide change handler
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  // Autoplay logic
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+    if (!emblaApi) return;
+    if (autoplayRef.current) clearInterval(autoplayRef.current);
+    autoplayRef.current = setInterval(() => {
+      if (emblaApi) emblaApi.scrollNext();
+    }, AUTOPLAY_DELAY);
+    emblaApi.on('select', onSelect);
+    return () => {
+      if (autoplayRef.current) clearInterval(autoplayRef.current);
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
-  const nextSlide = () => {
-    setDirection(1);
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  };
-
-  const prevSlide = () => {
-    setDirection(-1);
-    setCurrentSlide(
-      (prev) => (prev - 1 + heroSlides.length) % heroSlides.length
-    );
-  };
-
-  const goToSlide = (index: number) => {
-    setDirection(index > currentSlide ? 1 : -1);
-    setCurrentSlide(index);
-  };
-
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? "100%" : "-100%",
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction > 0 ? "-100%" : "100%",
-      opacity: 0,
-    }),
-  };
+  // Navigation
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+  const scrollTo = useCallback((idx: number) => emblaApi && emblaApi.scrollTo(idx), [emblaApi]);
 
   const textVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
   };
 
-  const currentSlideData = heroSlides[currentSlide];
-
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Background Image Slideshow */}
-      <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={currentSlide}
-            custom={direction}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={currentSlideData.src}
-              alt={currentSlideData.alt}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
-          </motion.div>
-        </AnimatePresence>
+    <section className="relative h-screen overflow-hidden">
+      {/* Embla Carousel */}
+      <div className="h-full" ref={emblaRef}>
+        <div className="flex h-full">
+          {heroSlides.map((slide, index) => (
+            <div
+              key={index}
+              className="min-w-0 flex-[0_0_100%] relative h-full"
+              style={{ minWidth: '100%' }}
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <Image
+                  src={slide.src}
+                  alt={slide.alt}
+                  fill
+                  className="object-cover"
+                  priority={index === 0}
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20" />
+              </div>
+
+              {/* Content with Text Transitions */}
+              <div className="relative z-10 flex items-center h-full px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20">
+                <div className="max-w-7xl mx-auto w-full">
+                  <div className="max-w-3xl">
+                    <AnimatePresence mode="wait">
+                      {selectedIndex === index && (
+                        <motion.div
+                          key={index}
+                          initial="hidden"
+                          animate="visible"
+                          exit="hidden"
+                          className="space-y-6"
+                        >
+                          {/* Badge with transition */}
+                          <motion.div
+                            variants={textVariants}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                            className="inline-flex items-center gap-2 px-3 py-1 bg-green-500/20 rounded-full text-white font-medium text-sm shadow-md"
+                          >
+                            <slide.icon size={18} className="text-green-300" />
+                            <span>{slide.badge}</span>
+                          </motion.div>
+
+                          {/* Main Heading with staggered animation */}
+                          <div className="space-y-3">
+                            <motion.h1
+                              variants={textVariants}
+                              transition={{ duration: 0.8, delay: 0.2 }}
+                              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-wide"
+                            >
+                              {slide.title}
+                            </motion.h1>
+
+                            <motion.h2
+                              variants={textVariants}
+                              transition={{ duration: 0.8, delay: 0.3 }}
+                              className="text-xl sm:text-2xl lg:text-3xl font-semibold text-green-200"
+                            >
+                              {slide.subtitle}
+                            </motion.h2>
+                          </div>
+
+                          {/* Description with transition */}
+                          <motion.p
+                            variants={textVariants}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-2xl"
+                          >
+                            {slide.description}
+                          </motion.p>
+
+                          {/* Features List with staggered animation */}
+                          <motion.div
+                            variants={textVariants}
+                            transition={{ duration: 0.8, delay: 0.5 }}
+                            className="flex flex-wrap gap-4"
+                          >
+                            {slide.features.map((feature, featureIndex) => (
+                              <motion.div
+                                key={feature}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: 0.6 + featureIndex * 0.1 }}
+                                className="flex items-center gap-2 text-white"
+                              >
+                                <CheckCircle size={16} className="text-green-400" />
+                                <span className="text-base font-medium">{feature}</span>
+                              </motion.div>
+                            ))}
+                          </motion.div>
+
+                          {/* CTA Buttons with transition */}
+                          <motion.div
+                            variants={textVariants}
+                            transition={{ duration: 0.8, delay: 0.7 }}
+                            className="flex flex-col sm:flex-row gap-4 pt-6"
+                          >
+                            <motion.div
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              <Button
+                                size="lg"
+                                className="bg-green-500 text-white hover:bg-green-600 px-6 py-3 text-lg"
+                              >
+                                Explore Products
+                                <ArrowRight size={20} className="ml-2" />
+                              </Button>
+                            </motion.div>
+                            <motion.div
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              <Button
+                                variant="outline"
+                                size="lg"
+                                className="border-2 border-green-500 text-green-500 hover:bg-green-50 px-6 py-3 text-lg"
+                              >
+                                Contact Us
+                              </Button>
+                            </motion.div>
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Navigation Arrows */}
-      <div className="absolute inset-y-0 left-4 z-30 flex items-center">
+      {/* Custom Navigation Arrows */}
+      <div className="hidden md:flex absolute inset-y-0 left-4 z-40 items-center custom-swiper-nav">
         <button
-          onClick={prevSlide}
-          className="p-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all duration-300"
+          onClick={scrollPrev}
+          className="group relative inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg hover:bg-white/20 hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
+          aria-label="Previous slide"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
+        </button>
+      </div>
+      <div className="hidden md:flex absolute inset-y-0 right-4 z-40 items-center custom-swiper-nav">
+        <button
+          onClick={scrollNext}
+          className="group relative inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg hover:bg-white/20 hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
         </button>
       </div>
 
-      <div className="absolute inset-y-0 right-4 z-30 flex items-center">
-        <button
-          onClick={nextSlide}
-          className="p-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all duration-300"
-        >
-          <ChevronRight size={24} />
-        </button>
-      </div>
-
-      {/* Navigation dots */}
-      <div className="absolute bottom-16 lg:bottom-36 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+      {/* Custom Pagination */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {heroSlides.map((_, index) => (
           <button
             key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === currentSlide
-                ? "bg-green-500"
-                : "bg-white/50 hover:bg-white/75"
-            }`}
+            onClick={() => scrollTo(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent ${selectedIndex === index ? 'bg-green-500' : 'bg-white/30 hover:bg-white/60'}`}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
-
-      {/* Content with Text Transitions */}
-      <div className="relative z-10 flex items-center h-full px-4 sm:px-6 lg:px-8 pt-36 pb-28 sm:pt-40 sm:pb-32 lg:pt-24 lg:pb-48 min-h-[80vh]">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="max-w-3xl mx-auto text-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentSlide}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                className="space-y-6"
-              >
-                {/* Badge with transition */}
-                <motion.div
-                  variants={textVariants}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg mx-auto"
-                >
-                  <currentSlideData.icon size={18} className="text-green-600" />
-                  <span>{currentSlideData.badge}</span>
-                </motion.div>
-
-                {/* Main Heading with staggered animation */}
-                <div className="space-y-3">
-                  <motion.h1
-                    variants={textVariants}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight"
-                  >
-                    {currentSlideData.title}
-                  </motion.h1>
-
-                  <motion.h2
-                    variants={textVariants}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    className="text-xl sm:text-2xl lg:text-3xl font-semibold text-green-200"
-                  >
-                    {currentSlideData.subtitle}
-                  </motion.h2>
-
-                  {/* Animated green line for each slide */}
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={currentSlide}
-                      initial={{ width: 0, opacity: 0 }}
-                      animate={{ width: "6rem", opacity: 1 }}
-                      exit={{ width: 0, opacity: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-                      className="h-0.5 bg-green-400 rounded-full mx-auto my-2 w-24 sm:w-32 md:w-40"
-                    />
-                  </AnimatePresence>
-                </div>
-
-                {/* Description with transition */}
-                <motion.p
-                  variants={textVariants}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto"
-                >
-                  {currentSlideData.description}
-                </motion.p>
-
-                {/* Stats with staggered animation */}
-                <motion.div
-                  variants={textVariants}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto"
-                >
-                  {currentSlideData.stats.map((stat, index) => (
-                    <motion.div
-                      key={stat.label}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                      className="text-center"
-                    >
-                      <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
-                      <div className="text-green-200 text-sm">{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-
-                {/* CTA Buttons with transition */}
-                <motion.div
-                  variants={textVariants}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                  className="flex flex-col sm:flex-row gap-4 pt-6 justify-center"
-                >
-                  <Button
-                    size="lg"
-                    className="btn-premium text-lg px-8 py-4 group"
-                  >
-                    Explore Products
-                    <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-8 py-4 text-lg transition-colors"
-                  >
-                    Contact Us
-                  </Button>
-                </motion.div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
       </div>
     </section>
   );
