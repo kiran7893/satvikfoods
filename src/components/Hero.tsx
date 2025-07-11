@@ -88,7 +88,7 @@ export default function Hero() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
-  const AUTOPLAY_DELAY = 8000;
+  const AUTOPLAY_DELAY =15000;
 
   // Slide change handler
   const onSelect = useCallback(() => {
