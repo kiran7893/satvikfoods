@@ -12,9 +12,11 @@ import {
   Factory,
   ChevronLeft,
   ChevronRight,
+  Phone,
 } from "lucide-react";
 import useEmblaCarousel from 'embla-carousel-react';
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 // Background images for hero carousel with different content
 const heroSlides = [
@@ -225,11 +227,14 @@ export default function Hero() {
                               whileTap={{ scale: 0.95 }}
                             >
                               <Button
+                                asChild
                                 size="lg"
                                 className="bg-green-500 text-white hover:bg-green-600 px-6 py-3 text-lg"
                               >
-                                Explore Products
-                                <ArrowRight size={20} className="ml-2" />
+                                <Link href="/products">
+                                  Explore Products
+                                  <ArrowRight size={20} className="ml-2" />
+                                </Link>
                               </Button>
                             </motion.div>
                             <motion.div
@@ -237,11 +242,15 @@ export default function Hero() {
                               whileTap={{ scale: 0.95 }}
                             >
                               <Button
+                                asChild
                                 variant="outline"
                                 size="lg"
                                 className="border-2 border-green-500 text-green-500 hover:bg-green-50 px-6 py-3 text-lg"
                               >
-                                Contact Us
+                                <a href="tel:+919448133201" className="flex items-center gap-2">
+                                  <Phone size={20} />
+                                  Contact Us
+                                </a>
                               </Button>
                             </motion.div>
                           </motion.div>

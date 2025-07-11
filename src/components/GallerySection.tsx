@@ -42,7 +42,7 @@ export default function GallerySection() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
-  const AUTOPLAY_DELAY = 5000;
+  const AUTOPLAY_DELAY = 10000;
 
   // Slide change handler
   const onSelect = useCallback(() => {

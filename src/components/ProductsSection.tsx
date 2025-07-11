@@ -125,7 +125,7 @@ export default function ProductsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
               viewport={{ once: true }}
-              className="glass-card rounded-2xl overflow-hidden hover-lift group"
+              className="glass-card rounded-2xl overflow-hidden hover-lift group flex flex-col h-full"
             >
               {/* Product Image */}
               <div className="relative h-64 overflow-hidden">
@@ -145,7 +145,7 @@ export default function ProductsSection() {
               </div>
 
               {/* Product Content */}
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{product.name}</h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">{product.description}</p>
                 
@@ -166,15 +166,17 @@ export default function ProductsSection() {
                 </div>
 
                 {/* View Details Button */}
-                <Button
-                  asChild
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 group"
-                >
-                  <Link href={`/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-center justify-center gap-2">
-                    View Details
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
+                <div className="mt-auto">
+                  <Button
+                    asChild
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 group"
+                  >
+                    <Link href={`/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-center justify-center gap-2">
+                      View Details
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -188,7 +190,20 @@ export default function ProductsSection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="glass-card p-8 lg:p-12 rounded-3xl max-w-4xl mx-auto">
+          <div className="relative glass-card p-8 lg:p-12 rounded-3xl max-w-4xl mx-auto overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/allproducts.jpg"
+                alt="All Products Background"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/60" />
+            </div>
+            
+            {/* Content */}
+            <div className="relative z-10">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -204,7 +219,7 @@ export default function ProductsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
               viewport={{ once: true }}
-              className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
+              className="text-3xl lg:text-4xl font-bold text-white mb-4"
             >
               Ready to Explore Our Full Product Range?
             </motion.h3>
@@ -214,7 +229,7 @@ export default function ProductsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
               viewport={{ once: true }}
-              className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto"
+              className="text-lg text-white/90 mb-8 max-w-2xl mx-auto"
             >
               Discover our complete catalog of premium vegetables and gherkins, 
               each product crafted with care and exported to meet global standards.
@@ -237,6 +252,7 @@ export default function ProductsSection() {
                 </Link>
               </Button>
             </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>
