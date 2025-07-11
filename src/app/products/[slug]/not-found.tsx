@@ -4,7 +4,7 @@ import { ArrowLeft, Search } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen pt-20 flex items-center justify-center bg-gradient-to-br from-green-50/50 to-white/50">
+    <div className="min-h-screen pt-20 flex items-center justify-center bg-green-100">
       <div className="max-w-lg mx-auto px-4 sm:px-8 text-center">
         <div className="mb-8">
           <Search size={64} className="text-gray-400 mx-auto mb-4" />

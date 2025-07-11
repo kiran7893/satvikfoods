@@ -10,6 +10,9 @@ import {
   CheckCircle,
   Package,
   Eye,
+  ArrowRight,
+  Leaf,
+  Award,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -46,10 +49,16 @@ export default function ProductPage({ params }: ProductPageProps) {
   }
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen pt-20 bg-green-50">
       {/* Hero Section */}
-      <section className="py-8 lg:py-12 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-8 lg:py-10 relative overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 right-20 w-72 h-72 bg-green-200/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-green-300/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back to Products - Top Left */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -59,7 +68,7 @@ export default function ProductPage({ params }: ProductPageProps) {
           >
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 text-green-600 hover:text-green-600 transition-colors bg-white/95 backdrop-blur-md px-3 py-2 sm:px-4 sm:py-2 rounded-full shadow-md hover:shadow-lg"
+              className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 transition-colors bg-white/95 backdrop-blur-md px-3 py-2 sm:px-4 sm:py-2 rounded-full shadow-premium hover:shadow-premium-lg"
             >
               <ArrowLeft size={18} />
               <span className="text-sm sm:text-base">Back to Products</span>
@@ -72,7 +81,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative w-full h-[400px] sm:h-[500px] rounded-2xl overflow-hidden"
+              className="relative w-full h-[400px] sm:h-[500px] rounded-2xl overflow-hidden shadow-premium"
             >
               <Image
                 src={product.image}
@@ -99,10 +108,20 @@ export default function ProductPage({ params }: ProductPageProps) {
               className="space-y-6"
             >
               <div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-4"
+                >
+                  <Leaf className="w-4 h-4" />
+                  <span>Premium Product</span>
+                </motion.div>
+
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                   {product.name}
                 </h1>
-                <p className="text-base sm:text-lg text-gray-600 mt-2 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                   {product.shortDescription}
                 </p>
               </div>
@@ -121,24 +140,26 @@ export default function ProductPage({ params }: ProductPageProps) {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 text-base"
+                  className="btn-premium text-base group"
                   asChild
                 >
                   <a
                     href={`mailto:bhat@satvicfoods.in?subject=Inquiry for ${product.name}`}
+                    className="flex items-center gap-2"
                   >
-                    <Mail size={18} className="mr-2" />
+                    <Mail size={18} />
                     Get Quote
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-green-500 text-green-500 hover:bg-green-50 px-6 py-3 text-base"
+                  className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white transition-colors text-base"
                   asChild
                 >
-                  <a href="tel:+919448133201">
-                    <Phone size={18} className="mr-2" />
+                  <a href="tel:+919448133201" className="flex items-center gap-2">
+                    <Phone size={18} />
                     Call Now
                   </a>
                 </Button>
@@ -149,14 +170,21 @@ export default function ProductPage({ params }: ProductPageProps) {
       </section>
 
       {/* Product Description */}
-      <section className="py-12 lg:py-16 bg-gradient-to-br from-green-50/50 to-white/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-8 lg:py-10 bg-green-50 relative overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-green-200/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-300/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="glass-card p-6 lg:p-8 rounded-2xl shadow-premium"
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
                 Product Overview
@@ -188,6 +216,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
+              className="glass-card p-6 lg:p-8 rounded-2xl shadow-premium"
             >
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
                 Uses & Applications
@@ -196,7 +225,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                 {product.uses.map((use, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-3 p-3 sm:p-4 bg-white rounded-lg shadow-sm"
+                    className="flex items-start gap-3 p-3 sm:p-4 bg-white/80 rounded-lg shadow-sm"
                   >
                     <Package
                       size={18}
@@ -212,8 +241,14 @@ export default function ProductPage({ params }: ProductPageProps) {
       </section>
 
       {/* Health Benefits */}
-      <section className="py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-8 lg:py-10 bg-green-50 relative overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 right-20 w-72 h-72 bg-green-200/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-green-300/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -221,13 +256,36 @@ export default function ProductPage({ params }: ProductPageProps) {
             viewport={{ once: true }}
             className="text-center mb-8 lg:mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              Health Benefits
-            </h2>
-            <p className="text-lg text-gray-600">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6"
+            >
+              <Award className="w-4 h-4" />
+              <span>Health Benefits</span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            >
+              Health <span className="text-gradient">Benefits</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            >
               Discover the nutritional advantages of our premium{" "}
               {product.name.toLowerCase()}
-            </p>
+            </motion.p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -238,7 +296,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center p-4 sm:p-6 bg-white/90 rounded-xl shadow-md"
+                className="glass-card text-center p-4 sm:p-6 rounded-xl shadow-premium hover:shadow-premium-lg transition-shadow"
               >
                 <div className="text-3xl mb-4">{benefit.icon}</div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -254,8 +312,14 @@ export default function ProductPage({ params }: ProductPageProps) {
       </section>
 
       {/* Related Products */}
-      <section className="py-12 lg:py-16 bg-gradient-to-br from-green-50/50 to-white/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-8 lg:py-10 bg-green-50 relative overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-green-200/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-300/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -263,12 +327,35 @@ export default function ProductPage({ params }: ProductPageProps) {
             viewport={{ once: true }}
             className="text-center mb-8 lg:mb-12"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              Other Products
-            </h2>
-            <p className="text-lg text-gray-600">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6"
+            >
+              <Package className="w-4 h-4" />
+              <span>Explore More</span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            >
+              Other <span className="text-gradient">Products</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            >
               Explore our complete range of premium products
-            </p>
+            </motion.p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -282,7 +369,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-xl overflow-hidden hover:shadow-lg transition-shadow"
+                  className="glass-card rounded-xl overflow-hidden hover:shadow-premium-lg transition-shadow hover:scale-105"
                 >
                   <div className="relative h-40 sm:h-48 w-full">
                     <Image
@@ -301,60 +388,19 @@ export default function ProductPage({ params }: ProductPageProps) {
                     </p>
                     <Button
                       size="sm"
-                      className="w-full bg-green-500 hover:bg-green-600 text-white text-sm"
+                      className="w-full btn-premium group"
                       asChild
                     >
-                      <Link href={`/products/${relatedProduct.slug}`}>
-                        <Eye size={14} className="mr-2" />
+                      <Link href={`/products/${relatedProduct.slug}`} className="flex items-center gap-2">
+                        <Eye size={14} />
                         View Details
+                        <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </Button>
                   </div>
                 </motion.div>
               ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-12 lg:py-16 bg-gradient-to-br from-green-500 to-green-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold">
-              Ready to Order {product.name}?
-            </h2>
-            <p className="text-lg text-green-100 max-w-2xl mx-auto">
-              Contact us today to discuss your requirements and get a
-              personalized quote for our premium {product.name.toLowerCase()}.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-              <Button
-                size="lg"
-                className="bg-white text-green-600 hover:bg-green-50 font-semibold px-6 py-3 text-base"
-                asChild
-              >
-                <a
-                  href={`mailto:bhat@satvicfoods.in?subject=Order Inquiry for ${product.name}`}
-                >
-                  Request Quote
-                </a>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-green-600 font-semibold px-6 py-3 text-base"
-                asChild
-              >
-                <a href="tel:+919448133201">Call Now</a>
-              </Button>
-            </div>
-          </motion.div>
         </div>
       </section>
 

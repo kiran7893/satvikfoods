@@ -33,17 +33,23 @@ const journeySteps = [
 
 export default function AboutJourney() {
   return (
-    <section className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+    <section className="py-8 lg:py-10 bg-green-50 relative overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 right-20 w-72 h-72 bg-green-200/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-green-300/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Our Journey */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
               The Satvic Foods Story
             </h2>
             <div className="space-y-6">
@@ -97,13 +103,13 @@ export default function AboutJourney() {
         </div>
 
         {/* Timeline Journey */}
-        <div className="mb-24">
+        <div className="mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 text-center"
+            className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center"
           >
             Our Growth Timeline
           </motion.h2>
@@ -146,9 +152,9 @@ export default function AboutJourney() {
         </div>
 
         {/* Vision & Mission */}
-        <div className="bg-gradient-to-br from-green-50/50 to-white/50 rounded-3xl p-8 lg:p-12">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-premium">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
               Our Vision & Mission
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">

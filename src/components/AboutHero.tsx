@@ -34,7 +34,7 @@ const companyStats = [
 
 export default function AboutHero() {
   return (
-    <section className="relative py-8 lg:py-16 overflow-hidden">
+    <section className="relative py-8 lg:py-10 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -69,11 +69,11 @@ export default function AboutHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center pt-16 mb-16"
+          className="text-center pt-16 mb-12"
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
             About{" "}
-            <span className="bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent">
+            <span className="text-green-500">
               Satvic Foods
             </span>
           </h1>
@@ -86,7 +86,7 @@ export default function AboutHero() {
         </motion.div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {companyStats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -95,7 +95,7 @@ export default function AboutHero() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="text-center p-6 glass-card rounded-xl backdrop-blur-md bg-white/90"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
                 <stat.icon size={28} className="text-green-500" />
               </div>
               <div className="text-3xl font-bold text-green-600 mb-2">

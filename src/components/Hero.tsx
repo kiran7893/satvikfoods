@@ -1,19 +1,10 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ChevronLeft, ChevronRight, Leaf, Factory, Award, Globe } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-  Leaf,
-  Award,
-  Globe,
-  CheckCircle,
-  Factory,
-} from "lucide-react";
 
 // Background images for hero carousel with different content
 const heroSlides = [
@@ -23,14 +14,12 @@ const heroSlides = [
     badge: "100% Sustainable Farming",
     title: "Sourcing Straight from Farmers",
     subtitle: "Premium Quality Vegetables",
-    description:
-      "Our wide range of premium vegetables is sourced directly from farmers, helping alleviate poverty and improve rural economies.",
+    description: "Our wide range of premium vegetables is sourced directly from farmers, helping alleviate poverty and improve rural economies.",
     icon: Leaf,
-    features: [
-      "Direct from Farm",
-      "Premium Quality",
-      "Global Export",
-      "Sustainable Practices",
+    stats: [
+      { number: "4000+", label: "Partner Farmers" },
+      { number: "25+", label: "Years Experience" },
+      { number: "100%", label: "Natural Process" },
     ],
   },
   {
@@ -39,30 +28,26 @@ const heroSlides = [
     badge: "Advanced Processing",
     title: "Leading Processor of South India",
     subtitle: "State-of-the-Art Facilities",
-    description:
-      "We process premium vegetables like Gherkins, Jalapeños, Baby Corn, Cherry Tomatoes, and Paprika with cutting-edge technology.",
+    description: "We process premium vegetables like Gherkins, Jalapeños, Baby Corn, Cherry Tomatoes, and Paprika with cutting-edge technology.",
     icon: Factory,
-    features: [
-      "Fully Automated",
-      "Quality Assured",
-      "FSSAI Certified",
-      "Export Ready",
+    stats: [
+      { number: "50+", label: "Countries Served" },
+      { number: "25+", label: "Years Experience" },
+      { number: "100%", label: "Quality Assured" },
     ],
   },
   {
     src: "/image-3.jpg",
     alt: "Farm Fresh Products",
     badge: "Farm to Table",
-    title: "Fully Automatic Processing",
-    subtitle: "Technology & Innovation",
-    description:
-      "Our preserved vegetables are processed from top-quality produce, ensuring 100% contamination-free products.",
+    title: "Farm to Fork Journey",
+    subtitle: "From Field to Your Table",
+    description: "Farm to fork - Our preserved vegetables are processed from top-quality produce, ensuring 100% contamination-free products.",
     icon: Award,
-    features: [
-      "Cutting-Edge Tech",
-      "Zero Contamination",
-      "Premium Grade",
-      "Quality Control",
+    stats: [
+      { number: "25+", label: "Years Experience" },
+      { number: "50+", label: "Countries Served" },
+      { number: "100%", label: "Zero Contamination" },
     ],
   },
   {
@@ -71,14 +56,12 @@ const heroSlides = [
     badge: "Global Distribution",
     title: "Exporting to 50+ Countries",
     subtitle: "International Standards",
-    description:
-      "Our products are trusted in Europe, Asia, the Middle East, and Africa, adhering to global quality standards.",
+    description: "Our products are trusted in Europe, Asia, the Middle East, and Africa, adhering to global quality standards.",
     icon: Globe,
-    features: [
-      "Global Reach",
-      "Export Quality",
-      "International Standards",
-      "Trusted Partner",
+    stats: [
+      { number: "50+", label: "Countries Served" },
+      { number: "4000+", label: "Partner Farmers" },
+      { number: "100%", label: "Export Quality" },
     ],
   },
 ];
@@ -90,9 +73,9 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 6000);
+    }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [currentSlide]);
 
   const nextSlide = () => {
     setDirection(1);
@@ -110,8 +93,6 @@ export default function Hero() {
     setDirection(index > currentSlide ? 1 : -1);
     setCurrentSlide(index);
   };
-
-  const currentSlideData = heroSlides[currentSlide];
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -133,9 +114,11 @@ export default function Hero() {
     visible: { opacity: 1, y: 0 },
   };
 
+  const currentSlideData = heroSlides[currentSlide];
+
   return (
-    <section className="relative h-screen overflow-hidden">
-      {/* Background Image Slideshow with Left-to-Right Animation */}
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Background Image Slideshow */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
@@ -145,7 +128,7 @@ export default function Hero() {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="absolute inset-0"
           >
             <Image
@@ -155,7 +138,7 @@ export default function Hero() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -180,7 +163,7 @@ export default function Hero() {
       </div>
 
       {/* Navigation dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+      <div className="absolute bottom-16 lg:bottom-36 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {heroSlides.map((_, index) => (
           <button
             key={index}
@@ -195,9 +178,9 @@ export default function Hero() {
       </div>
 
       {/* Content with Text Transitions */}
-      <div className="relative z-10 flex items-center h-full px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20">
+      <div className="relative z-10 flex items-center h-full px-4 sm:px-6 lg:px-8 pt-36 pb-28 sm:pt-40 sm:pb-32 lg:pt-24 lg:pb-48 min-h-[80vh]">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto text-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
@@ -210,9 +193,9 @@ export default function Hero() {
                 <motion.div
                   variants={textVariants}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                  className="inline-flex items-center gap-2 px-3 py-1 bg-green-500/20 rounded-full text-white font-medium text-sm shadow-md"
+                  className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg mx-auto"
                 >
-                  <currentSlideData.icon size={18} className="text-green-300" />
+                  <currentSlideData.icon size={18} className="text-green-600" />
                   <span>{currentSlideData.badge}</span>
                 </motion.div>
 
@@ -221,7 +204,7 @@ export default function Hero() {
                   <motion.h1
                     variants={textVariants}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-wide"
+                    className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight"
                   >
                     {currentSlideData.title}
                   </motion.h1>
@@ -234,39 +217,44 @@ export default function Hero() {
                     {currentSlideData.subtitle}
                   </motion.h2>
 
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: "6rem" }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="h-0.5 bg-green-400 rounded-full"
-                  />
+                  {/* Animated green line for each slide */}
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentSlide}
+                      initial={{ width: 0, opacity: 0 }}
+                      animate={{ width: "6rem", opacity: 1 }}
+                      exit={{ width: 0, opacity: 0 }}
+                      transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                      className="h-0.5 bg-green-400 rounded-full mx-auto my-2 w-24 sm:w-32 md:w-40"
+                    />
+                  </AnimatePresence>
                 </div>
 
                 {/* Description with transition */}
                 <motion.p
                   variants={textVariants}
                   transition={{ duration: 0.8, delay: 0.5 }}
-                  className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-2xl"
+                  className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto"
                 >
                   {currentSlideData.description}
                 </motion.p>
 
-                {/* Features List with staggered animation */}
+                {/* Stats with staggered animation */}
                 <motion.div
                   variants={textVariants}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="flex flex-wrap gap-4"
+                  className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto"
                 >
-                  {currentSlideData.features.map((feature, index) => (
+                  {currentSlideData.stats.map((stat, index) => (
                     <motion.div
-                      key={feature}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      key={stat.label}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                      className="flex items-center gap-2 text-white"
+                      className="text-center"
                     >
-                      <CheckCircle size={16} className="text-green-400" />
-                      <span className="text-base font-medium">{feature}</span>
+                      <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
+                      <div className="text-green-200 text-sm">{stat.label}</div>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -275,32 +263,22 @@ export default function Hero() {
                 <motion.div
                   variants={textVariants}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  className="flex flex-col sm:flex-row gap-4 pt-6"
+                  className="flex flex-col sm:flex-row gap-4 pt-6 justify-center"
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                  <Button
+                    size="lg"
+                    className="btn-premium text-lg px-8 py-4 group"
                   >
-                    <Button
-                      size="lg"
-                      className="bg-green-500 text-white hover:bg-green-600 px-6 py-3 text-lg"
-                    >
-                      Explore Products
-                      <ArrowRight size={20} className="ml-2" />
-                    </Button>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    Explore Products
+                    <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-green-400 text-green-400 hover:bg-green-400 hover:text-white px-8 py-4 text-lg transition-colors"
                   >
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="border-2 border-green-500 text-green-500 hover:bg-green-50 px-6 py-3 text-lg"
-                    >
-                      Contact Us
-                    </Button>
-                  </motion.div>
+                    Contact Us
+                  </Button>
                 </motion.div>
               </motion.div>
             </AnimatePresence>
