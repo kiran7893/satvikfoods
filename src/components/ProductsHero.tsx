@@ -84,7 +84,7 @@ export default function ProductsHero() {
               <div className="flex items-center justify-center w-12 h-12 bg-green-500/20 rounded-full mb-2 mx-auto">
                 <Award className="w-6 h-6 text-green-300" />
               </div>
-              <div className="text-2xl font-bold text-white">25+</div>
+              <div className="text-2xl font-bold text-white">15+</div>
               <div className="text-green-200 text-sm">Years Experience</div>
             </div>
             <div className="text-center">

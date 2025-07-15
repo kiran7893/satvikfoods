@@ -119,8 +119,8 @@ export default function AboutSection() {
               >
                 <div className="flex items-center justify-between">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">25+</div>
-                    <div className="text-sm text-gray-600">Years Experience</div>
+                                  <div className="text-2xl font-bold text-green-600">15+</div>
+              <div className="text-sm text-gray-600">Years Experience</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-green-600">50+</div>
@@ -155,7 +155,7 @@ export default function AboutSection() {
                 Leading the Way in Premium Vegetable Exports
               </h3>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                Since 1998, we have been at the forefront of India&apos;s agricultural exports, 
+                Since 2008, we have been at the forefront of India&apos;s agricultural exports, 
                 specializing in premium pickled gherkins and fresh vegetables. Our commitment 
                 to quality, sustainability, and innovation has made us a trusted partner for 
                 global markets.
