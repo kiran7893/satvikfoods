@@ -18,7 +18,7 @@ const companyStats = [
     description: "Exporting premium products to global markets",
   },
   {
-    number: "25+",
+    number: "15+",
     label: "Years Experience",
     icon: Award,
     description: "Longest experience in preserved vegetables field",

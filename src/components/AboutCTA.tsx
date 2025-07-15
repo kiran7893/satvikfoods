@@ -39,7 +39,7 @@ export default function AboutCTA() {
           {/* Stats Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto mt-8">
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">25+</div>
+              <div className="text-2xl font-bold text-white">15+</div>
               <div className="text-green-200 text-sm">Years Experience</div>
             </div>
             <div className="text-center">
