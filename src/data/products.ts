@@ -17,6 +17,12 @@ export interface SubProduct {
       can?: string[];
       pouch?: string[];
       barrel?: string[];
+      icon?: {
+        jar?: string;
+        can?: string;
+        pouch?: string;
+        barrel?: string;
+      };
     };
   };
   pricing?: {
@@ -113,7 +119,13 @@ export const products: Product[] = [
             jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
             pouch: ["3100 ml", "5000 ml"],
-            barrel: ["240 ltrs", "260 ltrs"]
+            barrel: ["240 ltrs", "260 ltrs"],
+            icon: {
+              jar: "/svg/jar.svg",
+              can: "/svg/open-can.svg",
+              pouch: "/svg/pouch.svg",
+              barrel: "/svg/barrel.svg"
+            }
           }
         },
         pricing: {
@@ -135,7 +147,13 @@ export const products: Product[] = [
             jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
             pouch: ["3100 ml", "5000 ml"],
-            barrel: ["240 ltrs", "260 ltrs"]
+            barrel: ["240 ltrs", "260 ltrs"],
+            icon: {
+              jar: "/svg/jar.svg",
+              can: "/svg/open-can.svg",
+              pouch: "/svg/pouch.svg",
+              barrel: "/svg/barrel.svg"
+            }
           }
         },
         pricing: {
@@ -157,7 +175,13 @@ export const products: Product[] = [
             jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
             pouch: ["3100 ml", "5000 ml"],
-            barrel: ["240 ltrs", "260 ltrs"]
+            barrel: ["240 ltrs", "260 ltrs"],
+            icon: {
+              jar: "/svg/jar.svg",
+              can: "/svg/open-can.svg",
+              pouch: "/svg/pouch.svg",
+              barrel: "/svg/barrel.svg"
+            }
           }
         },
         pricing: {
@@ -181,7 +205,11 @@ export const products: Product[] = [
           recipe: "Vinegar / Acetic Acid / Customise",
           packagingOptions: {
             jar: ["500 ml", "720 ml"],
-            can: ["850 ml", "3100 ml", "4250 ml"]
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            icon: {
+              jar: "/svg/jar.svg",
+              can: "/svg/open-can.svg"
+            }
           }
         },
         pricing: {
@@ -205,7 +233,11 @@ export const products: Product[] = [
           recipe: "Vinegar / Acetic Acid / Customise",
           packagingOptions: {
             jar: ["500 ml", "720 ml"],
-            can: ["850 ml", "3100 ml", "4250 ml"]
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            icon: {
+              jar: "/svg/jar.svg",
+              can: "/svg/open-can.svg"
+            }
           }
         },
         pricing: {
@@ -231,7 +263,13 @@ export const products: Product[] = [
             jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
             pouch: ["3100 ml", "5000 ml"],
-            barrel: ["240 ltrs", "260 ltrs"]
+            barrel: ["240 ltrs", "260 ltrs"],
+            icon: {
+              jar: "/svg/jar.svg",
+              can: "/svg/open-can.svg",
+              pouch: "/svg/pouch.svg",
+              barrel: "/svg/barrel.svg"
+            }
           }
         },
         pricing: {
@@ -303,7 +341,13 @@ export const products: Product[] = [
             jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
             pouch: ["3100 ml", "5000 ml"],
-            barrel: ["240 ltrs", "260 ltrs"]
+            barrel: ["240 ltrs", "260 ltrs"],
+            icon: {
+              jar: "/svg/jar.svg",
+              can: "/svg/open-can.svg",
+              pouch: "/svg/pouch.svg",
+              barrel: "/svg/barrel.svg"
+            }
           }
         },
         pricing: {
@@ -324,7 +368,13 @@ export const products: Product[] = [
             jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
             pouch: ["3100 ml", "5000 ml"],
-            barrel: ["240 ltrs", "260 ltrs"]
+            barrel: ["240 ltrs", "260 ltrs"],
+            icon: {
+              jar: "/svg/jar.svg",
+              can: "/svg/open-can.svg",
+              pouch: "/svg/pouch.svg",
+              barrel: "/svg/barrel.svg"
+            }
           }
         },
         pricing: {
@@ -395,7 +445,12 @@ export const products: Product[] = [
           packagingOptions: {
             jar: ["370 ml", "375 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
-            barrel: ["240 ltrs", "260 ltrs"]
+            barrel: ["240 ltrs", "260 ltrs"],
+            icon: {
+              jar: "/svg/jar.svg",
+              can: "/svg/open-can.svg",
+              barrel: "/svg/barrel.svg"
+            }
           }
         },
         pricing: {
@@ -466,7 +521,11 @@ export const products: Product[] = [
             recipe: "Vinegar / Acetic Acid / Customise",
             packagingOptions: {
               jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
-              can: ["850 ml", "3100 ml", "4250 ml"]
+              can: ["850 ml", "3100 ml", "4250 ml"],
+              icon: {
+                jar: "/svg/jar.svg",
+                can: "/svg/open-can.svg"
+              }
             }
           },
           pricing: {
@@ -485,7 +544,11 @@ export const products: Product[] = [
             recipe: "Vinegar / Acetic Acid / Customise",
             packagingOptions: {
               jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
-              can: ["850 ml", "3100 ml", "4250 ml"]
+              can: ["850 ml", "3100 ml", "4250 ml"],
+              icon: {
+                jar: "/svg/jar.svg",
+                can: "/svg/open-can.svg"
+              }
             }
           },
           pricing: {
@@ -504,7 +567,11 @@ export const products: Product[] = [
             recipe: "Vinegar / Acetic Acid / Customise",
             packagingOptions: {
               jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
-              can: ["850 ml", "3100 ml", "4250 ml"]
+              can: ["850 ml", "3100 ml", "4250 ml"],
+              icon: {
+                jar: "/svg/jar.svg",
+                can: "/svg/open-can.svg"
+              }
             }
           },
           pricing: {
@@ -674,7 +741,11 @@ export const products: Product[] = [
           recipe: "Vinegar / Acetic Acid / Customise",
           packagingOptions: {
             jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
-            can: ["850 ml", "3100 ml", "4250 ml"]
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            icon: {
+              jar: "/svg/jar.svg",
+              can: "/svg/open-can.svg"
+            }
           }
         },
         pricing: {
@@ -693,7 +764,11 @@ export const products: Product[] = [
           recipe: "Vinegar / Acetic Acid / Customise",
           packagingOptions: {
             jar: ["500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
-            can: ["850 ml", "3100 ml", "4250 ml"]
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            icon: {
+              jar: "/svg/jar.svg",
+              can: "/svg/open-can.svg"
+            }
           }
         },
         pricing: {

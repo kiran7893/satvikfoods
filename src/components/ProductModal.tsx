@@ -140,39 +140,28 @@ export default function ProductModal({
               <h4 className="font-semibold text-gray-900 mb-3">
                 Packaging Options
               </h4>
-              <div className="space-y-3">
-                {subProduct.specifications.packagingOptions.jar && (
-                  <div>
-                    <span className="font-medium text-gray-700">Glass Jar: </span>
-                    <span className="text-gray-600">
-                      {subProduct.specifications.packagingOptions.jar.join(', ')}
-                    </span>
-                  </div>
-                )}
-                {subProduct.specifications.packagingOptions.can && (
-                  <div>
-                    <span className="font-medium text-gray-700">Metal Can: </span>
-                    <span className="text-gray-600">
-                      {subProduct.specifications.packagingOptions.can.join(', ')}
-                    </span>
-                  </div>
-                )}
-                {subProduct.specifications.packagingOptions.pouch && (
-                  <div>
-                    <span className="font-medium text-gray-700">Flexible Pouch: </span>
-                    <span className="text-gray-600">
-                      {subProduct.specifications.packagingOptions.pouch.join(', ')}
-                    </span>
-                  </div>
-                )}
-                {subProduct.specifications.packagingOptions.barrel && (
-                  <div>
-                    <span className="font-medium text-gray-700">Bulk Barrel: </span>
-                    <span className="text-gray-600">
-                      {subProduct.specifications.packagingOptions.barrel.join(', ')}
-                    </span>
-                  </div>
-                )}
+              <div className="divide-y divide-gray-200">
+                {([
+                  { key: 'jar', label: 'Jar', color: 'text-pink-600' },
+                  { key: 'can', label: 'Can', color: 'text-pink-600' },
+                  { key: 'pouch', label: 'Pouch', color: 'text-pink-600' },
+                  { key: 'barrel', label: 'Barrel', color: 'text-pink-600' },
+                ] as const).map(({ key, label, color }) => {
+                  const packagingOptions = subProduct.specifications.packagingOptions;
+                  if (!packagingOptions) return null;
+                  const sizes = (packagingOptions as Record<string, string[] | undefined>)[key];
+                  const icon = (packagingOptions.icon as Record<string, string | undefined>)?.[key];
+                  if (!sizes) return null;
+                  return (
+                    <div key={key} className="flex items-center gap-4 py-3">
+                      <span className={`w-20 font-bold ${color}`}>{label}</span>
+                      {icon && (
+                        <img src={icon} alt={label + ' icon'} className="w-10 h-10 object-contain" />
+                      )}
+                      <span className="text-gray-700 text-sm">{sizes.join(', ')}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
