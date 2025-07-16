@@ -5,65 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, Globe, Award } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-
-const products = [
-  {
-    name: "Premium Gherkins",
-    image: "/gherkin.jpg",
-    description: "Fresh, crisp gherkins preserved to international standards with perfect texture and taste",
-    features: ["Multiple Variants", "Export Quality", "Customizable Recipe"],
-    rating: 4.9,
-    reviews: 1200
-  },
-  {
-    name: "Spicy Jalapenos",
-    image: "/jalapeno.jpg", 
-    description: "Authentic jalapenos with perfect heat level and flavor, ideal for various culinary applications",
-    features: ["Premium Grade", "Consistent Heat", "Long Shelf Life"],
-    rating: 4.8,
-    reviews: 850
-  },
-  {
-    name: "Tender Baby Corn",
-    image: "/baby-corn.jpg",
-    description: "Sweet, tender baby corn harvested at optimal freshness for maximum nutritional value",
-    features: ["Fresh Harvest", "Tender Texture", "Versatile Use"],
-    rating: 4.9,
-    reviews: 1100
-  },
-  {
-    name: "Tomatoes",
-    image: "/tomato.jpg",
-    description: "Premium tomatoes in various varieties, from sweet cherry tomatoes to plump plum tomatoes",
-    features: ["Multiple Varieties", "Rich Flavor", "Premium Quality"],
-    rating: 4.7,
-    reviews: 750
-  },
-  {
-    name: "Red Paprika",
-    image: "/red-paprika.jpg",
-    description: "Vibrant red paprika with rich color and authentic flavor from Karnataka's finest farms",
-    features: ["Rich Color", "Intense Flavor", "High Quality"],
-    rating: 4.8,
-    reviews: 920
-  },
-  {
-    name: "Banderilla",
-    image: "/banderilla.jpg",
-    description: "Traditional Spanish tapas-style pickled appetizer with a perfect blend of savory ingredients",
-    features: ["Spanish Recipe", "Perfect Bite-Sized", "Authentic Taste"],
-    rating: 4.9,
-    reviews: 680
-  },
-  {
-    name: "Premium Assorty",
-    image: "/assorty.jpg",
-    description: "Delightful combinations of our premium products, perfectly paired for enhanced culinary experiences",
-    features: ["Curated Combinations", "Perfect Pairings", "Premium Quality"],
-    rating: 4.8,
-    reviews: 580
-  }
-];
+import { products } from "@/data/products";
 
 export default function ProductsSection() {
   return (
@@ -124,70 +66,72 @@ export default function ProductsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 lg:justify-items-center"
+          className="flex justify-center"
         >
-          {products.map((product, index) => (
-            <motion.div
-              key={product.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-              viewport={{ once: true }}
-              className="glass-card rounded-2xl overflow-hidden hover-lift group flex flex-col h-full"
-            >
-              {/* Product Image */}
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                
-                {/* Rating Badge */}
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
-                  <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                  <span className="text-sm font-semibold text-gray-900">{product.rating}</span>
-                </div>
-              </div>
-
-              {/* Product Content */}
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{product.name}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{product.description}</p>
-                
-                {/* Features */}
-                <div className="space-y-2 mb-6">
-                  {product.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-sm text-gray-700 font-medium">{feature}</span>
-                    </div>
-                  ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 max-w-6xl">
+            {products.map((product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                viewport={{ once: true }}
+                className="glass-card rounded-2xl overflow-hidden hover-lift group flex flex-col h-full"
+              >
+                {/* Product Image */}
+                <div className="relative h-64 overflow-hidden">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  
+                  {/* Rating Badge */}
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                    <span className="text-sm font-semibold text-gray-900">4.8</span>
+                  </div>
                 </div>
 
-                {/* Reviews */}
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                  <span>{product.reviews.toLocaleString()} reviews</span>
-                  <span>Export Quality</span>
-                </div>
+                {/* Product Content */}
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{product.name}</h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed">{product.shortDescription}</p>
+                  
+                  {/* Features */}
+                  <div className="space-y-2 mb-6">
+                    {product.features.slice(0, 3).map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-sm text-gray-700 font-medium">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
 
-                {/* View Details Button */}
-                <div className="mt-auto">
-                  <Button
-                    asChild
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 group"
-                  >
-                    <Link href={`/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-center justify-center gap-2">
-                      View Details
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
+                  {/* Reviews */}
+                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                    <span>{(Math.random() * 1000 + 500).toFixed(0)} reviews</span>
+                    <span>Export Quality</span>
+                  </div>
+
+                  {/* View Details Button */}
+                  <div className="mt-auto">
+                    <Button
+                      asChild
+                      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 group"
+                    >
+                      <Link href={`/products/${product.slug}`} className="flex items-center justify-center gap-2">
+                        View Details
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* CTA Section */}
