@@ -1,3 +1,30 @@
+export interface SubProduct {
+  id: string;
+  name: string;
+  image: string;
+  rawImage?: string;
+  shortDescription: string;
+  specifications: {
+    size?: string;
+    weight?: string;
+    packaging?: string;
+    grade?: string;
+    processing?: string;
+    grades?: string[];
+    recipe?: string;
+    packagingOptions?: {
+      jar?: string[];
+      can?: string[];
+      pouch?: string[];
+      barrel?: string[];
+    };
+  };
+  pricing?: {
+    minOrder?: string;
+    bulkPricing?: string;
+  };
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -8,12 +35,13 @@ export interface Product {
   features: string[];
   uses: string[];
   healthBenefits: { icon: string; title: string; description: string }[];
+  subProducts?: SubProduct[];
 }
 
 export const products: Product[] = [
   {
     id: "1",
-    slug: "premium-gherkins",
+    slug: "gherkins",
     name: "Premium Gherkins",
     image: "/gherkin.jpg",
     shortDescription:
@@ -66,6 +94,152 @@ export const products: Product[] = [
         description: "The salt content helps satisfy your salt cravings",
       },
     ],
+    subProducts: [
+      {
+        id: "gherkin-whole",
+        name: "Whole",
+        image: "/gherkin-whole.jpg",
+        rawImage: "/gherkin-whole-raw.jpg",
+        shortDescription: "Premium whole gherkins preserved in natural brine",
+        specifications: {
+          size: "Jar, Can, Pouch, Barrel",
+          weight: "500g, 1kg, 5kg",
+          packaging: "Glass jars, Plastic containers",
+          grade: "A",
+          processing: "Natural vinegar preservation",
+          grades: ["1-4 cm", "2-5 cm", "3-6 cm", "6-9 cm", "9-12 cm"],
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            pouch: ["3100 ml", "5000 ml"],
+            barrel: ["240 ltrs", "260 ltrs"]
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      },
+      {
+        id: "gherkin-plain-cut",
+        name: "Plain Cut Sliced",
+        image: "/gherkin-plaincut.jpg",
+        rawImage: "/gherkin-plaincut-raw.jpg",
+        shortDescription: "Uniformly sliced gherkins for consistent cooking",
+        specifications: {
+          size: "Jar, Can, Pouch, Barrel",
+          grades: ["3-5 mm", "5-7 mm", "8-10 mm", "20-25 mm"],
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            pouch: ["3100 ml", "5000 ml"],
+            barrel: ["240 ltrs", "260 ltrs"]
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      },
+      {
+        id: "gherkin-crinkle-cut",
+        name: "Crinkle Cut Sliced",
+        image: "/gherkin-crinklecut.jpg",
+        rawImage: "/gherkin-crinklecut-raw.jpg",
+        shortDescription: "Crinkle-cut gherkins for enhanced texture and presentation",
+        specifications: {
+          size: "Jar, Can, Pouch, Barrel",
+          grades: ["3-5 mm", "5-7 mm", "8-10 mm", "20-25 mm"],
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            pouch: ["3100 ml", "5000 ml"],
+            barrel: ["240 ltrs", "260 ltrs"]
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      },
+      {
+        id: "gherkin-stacker",
+        name: "Stacker",
+        image: "/gherkin-stacker.jpg",
+        rawImage: "/gherkin-stacker-raw.jpg",
+        shortDescription: "Long gherkin spears perfect for stacking and garnishing",
+        specifications: {
+          size: "Jar, Can",
+          weight: "500g, 1kg, 5kg",
+          packaging: "Glass jars, Plastic containers",
+          grade: "A",
+          processing: "Spear cut, natural preservation",
+          grades: ["Angular & vertical cuts & slices of 3-5 mm vertical cuts"],
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["500 ml", "720 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"]
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      },
+      {
+        id: "gherkin-spear",
+        name: "Spear",
+        image: "/gherkin-spear.jpg",
+        rawImage: "/gherkin-spear-raw.jpg",
+        shortDescription: "Classic gherkin spears for traditional pickling",
+        specifications: {
+          size: "Jar, Can",
+          weight: "500g, 1kg, 5kg",
+          packaging: "Glass jars, Plastic containers",
+          grade: "A",
+          processing: "Quarter cut, natural preservation",
+          grades: ["Angular & vertical cuts & slices of 3-5 mm vertical cuts"],
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["500 ml", "720 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"]
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      },
+      {
+        id: "gherkin-cube",
+        name: "Cube/Dice",
+        image: "/gherkin-cube.jpg",
+        rawImage: "/gherkin-cube-raw.jpg",
+        shortDescription: "Perfectly diced gherkins for easy incorporation in dishes",
+        specifications: {
+          size: "Jar, Can, Pouch, Barrel",
+          weight: "500g, 1kg, 5kg",
+          packaging: "Glass jars, Plastic containers",
+          grade: "A",
+          processing: "Diced, natural preservation",
+          grades: ["3x3X5 mm", "6X6X6 mm", "9X9X9 mm"],
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            pouch: ["3100 ml", "5000 ml"],
+            barrel: ["240 ltrs", "260 ltrs"]
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      }
+    ]
   },
   {
     id: "2",
@@ -115,6 +289,50 @@ export const products: Product[] = [
         description: "Natural compounds may help with pain management",
       },
     ],
+    subProducts: [
+      {
+        id: "jalapeno-whole",
+        name: "Whole",
+        image: "/jalapenos-whole.jpg",
+        rawImage: "/jalapenos-whole-raw.jpg",
+        shortDescription: "Whole jalapenos preserved with authentic heat and flavor",
+        specifications: {
+          grades: [],
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            pouch: ["3100 ml", "5000 ml"],
+            barrel: ["240 ltrs", "260 ltrs"]
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      },
+      {
+        id: "jalapeno-sliced",
+        name: "Sliced",
+        image: "/jalapenos-sliced.jpg",
+        rawImage: "/jalapenos-sliced-raw.jpg",
+        shortDescription: "Uniformly sliced jalapenos for consistent heat distribution",
+        specifications: {
+          grades: [],
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            pouch: ["3100 ml", "5000 ml"],
+            barrel: ["240 ltrs", "260 ltrs"]
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      }
+    ]
   },
   {
     id: "3",
@@ -164,55 +382,137 @@ export const products: Product[] = [
         description: "Contains phosphorus and magnesium for bone strength",
       },
     ],
+    subProducts: [
+      {
+        id: "baby-corn-whole",
+        name: "Whole",
+        image: "/babycorn-whole.jpg",
+        rawImage: "/babycorn-whole-raw.jpg",
+        shortDescription: "Whole baby corn cobs preserved at peak freshness",
+        specifications: {
+          grades: [],
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["370 ml", "375 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            barrel: ["240 ltrs", "260 ltrs"]
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      }
+    ]
   },
-  {
-    id: "4",
-    slug: "cherry-tomatoes",
-    name: "Cherry Tomatoes",
-    image: "/cherry-tomato.jpg",
-    shortDescription:
-      "Juicy cherry tomatoes bursting with natural sweetness and vibrant color",
-    fullDescription:
-      "Our premium cherry tomatoes are carefully cultivated to deliver exceptional flavor and nutritional value. These bite-sized tomatoes are packed with natural sweetness and vibrant color, making them perfect for both fresh consumption and preservation. Grown using sustainable farming practices, our cherry tomatoes maintain their firm texture and rich taste throughout processing.",
-    features: [
-      "Natural sweetness",
-      "Vibrant red color",
-      "Firm, juicy texture",
-      "Rich in vitamins",
-      "Perfect size consistency",
-      "Extended freshness",
-    ],
-    uses: [
-      "Fresh salads and garnishes",
-      "Pasta and pizza toppings",
-      "Preserved preparations",
-      "Snacking and appetizers",
-      "Sauce and paste production",
-      "Gourmet cooking",
-      "Mediterranean cuisine",
-    ],
-    healthBenefits: [
       {
-        icon: "❤️",
-        title: "Heart Health",
-        description: "Lycopene supports cardiovascular health",
-      },
-      {
-        icon: "👀",
-        title: "Eye Health",
-        description: "Rich in lutein and zeaxanthin for vision",
-      },
-      {
-        icon: "🛡️",
-        title: "Antioxidant Power",
-        description: "High in antioxidants that fight free radicals",
-      },
-      {
-        icon: "🧬",
-        title: "Cellular Health",
-        description: "Folate supports healthy cell division",
-      },
-    ],
+      id: "4",
+      slug: "tomatoes",
+      name: "Tomatoes",
+      image: "/tomato.jpg",
+      shortDescription:
+        "Premium tomatoes in various varieties, from sweet cherry tomatoes to plump plum tomatoes",
+      fullDescription:
+        "Our premium tomato collection features carefully selected varieties including sweet cherry tomatoes and flavorful plum tomatoes in both red and green varieties. Each type is cultivated to deliver exceptional flavor and nutritional value. Grown using sustainable farming practices and preserved using traditional methods, our tomatoes maintain their firm texture and rich taste throughout processing.",
+      features: [
+        "Multiple varieties available",
+        "Natural sweetness",
+        "Vibrant colors",
+        "Firm, juicy texture",
+        "Rich in vitamins",
+        "Perfect size consistency",
+        "Extended freshness",
+      ],
+      uses: [
+        "Fresh salads and garnishes",
+        "Pasta and pizza toppings",
+        "Preserved preparations",
+        "Snacking and appetizers",
+        "Sauce and paste production",
+        "Gourmet cooking",
+        "Mediterranean cuisine",
+      ],
+      healthBenefits: [
+        {
+          icon: "❤️",
+          title: "Heart Health",
+          description: "Lycopene supports cardiovascular health",
+        },
+        {
+          icon: "👀",
+          title: "Eye Health",
+          description: "Rich in lutein and zeaxanthin for vision",
+        },
+        {
+          icon: "🛡️",
+          title: "Antioxidant Power",
+          description: "High in antioxidants that fight free radicals",
+        },
+        {
+          icon: "🧬",
+          title: "Cellular Health",
+          description: "Folate supports healthy cell division",
+        },
+      ],
+      subProducts: [
+        {
+          id: "cherry-tomatoes",
+          name: "Cherry Tomatoes",
+          image: "/cherry-tomatoes.jpg",
+          rawImage: "/cherry-tomatoes-raw.jpg",
+          shortDescription: "Sweet and juicy cherry tomatoes with perfect bite-sized portions",
+          specifications: {
+            size: "Jar, Can",
+            recipe: "Vinegar / Acetic Acid / Customise",
+            packagingOptions: {
+              jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+              can: ["850 ml", "3100 ml", "4250 ml"]
+            }
+          },
+          pricing: {
+            minOrder: "1000 kg",
+            bulkPricing: "Contact for bulk pricing"
+          }
+        },
+        {
+          id: "plum-green",
+          name: "Plum Green",
+          image: "/plum-green.jpg",
+          rawImage: "/plum-green-raw.jpg",
+          shortDescription: "Fresh green plum tomatoes preserved at peak ripeness",
+          specifications: {
+            size: "Jar, Can",
+            recipe: "Vinegar / Acetic Acid / Customise",
+            packagingOptions: {
+              jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+              can: ["850 ml", "3100 ml", "4250 ml"]
+            }
+          },
+          pricing: {
+            minOrder: "1000 kg",
+            bulkPricing: "Contact for bulk pricing"
+          }
+        },
+        {
+          id: "plum-red",
+          name: "Plum Red",
+          image: "/plum-red.jpg",
+          rawImage: "/plum-red-raw.jpg",
+          shortDescription: "Ripe red plum tomatoes with rich flavor and meaty texture",
+          specifications: {
+            size: "Jar, Can",
+            recipe: "Vinegar / Acetic Acid / Customise",
+            packagingOptions: {
+              jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+              can: ["850 ml", "3100 ml", "4250 ml"]
+            }
+          },
+          pricing: {
+            minOrder: "1000 kg",
+            bulkPricing: "Contact for bulk pricing"
+          }
+        }
+      ],
   },
   {
     id: "5",
@@ -312,6 +612,96 @@ export const products: Product[] = [
         description: "Natural minerals from pickled vegetables",
       },
     ],
+  },
+  {
+    id: "7",
+    slug: "assorty",
+    name: "Premium Assorty",
+    image: "/assorty.jpg",
+    shortDescription:
+      "Delightful combinations of our premium products, perfectly paired for enhanced culinary experiences",
+    fullDescription:
+      "Our Premium Assorty collection features carefully curated combinations of our finest products. Each assortment is thoughtfully paired to create perfect flavor harmonies and provide versatile culinary applications. These combinations offer convenience and variety, making them ideal for both professional kitchens and home cooking.",
+    features: [
+      "Carefully curated combinations",
+      "Premium quality ingredients",
+      "Perfect flavor pairings",
+      "Convenient packaging",
+      "Versatile applications",
+      "Extended shelf life",
+      "International quality standards",
+    ],
+    uses: [
+      "Gourmet appetizers",
+      "Restaurant service",
+      "Catering and events",
+      "Retail food service",
+      "Home entertaining",
+      "Professional kitchens",
+      "Specialty food stores",
+    ],
+    healthBenefits: [
+      {
+        icon: "🥗",
+        title: "Balanced Nutrition",
+        description: "Combined nutrients from multiple premium ingredients",
+      },
+      {
+        icon: "🌿",
+        title: "Natural Preservation",
+        description: "Preserved using traditional methods for best quality",
+      },
+      {
+        icon: "💪",
+        title: "Diverse Benefits",
+        description: "Multiple health benefits from varied ingredients",
+      },
+      {
+        icon: "🍅",
+        title: "Antioxidant Rich",
+        description: "Rich in various antioxidants from combined sources",
+      },
+    ],
+    subProducts: [
+      {
+        id: "assorty-cherry-gherkin",
+        name: "Cherry Tomato With Whole Gherkin",
+        image: "/assorty-cherrygherkin.jpg",
+        rawImage: "/assorty-cherrygherkin-raw.jpg",
+        shortDescription: "Perfect combination of sweet cherry tomatoes and crisp whole gherkins",
+        specifications: {
+          size: "Jar, Can",
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"]
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      },
+      {
+        id: "assorty-plum-gherkin",
+        name: "Plum Tomato With Whole Gherkin",
+        image: "/assorty-plumgherkin.jpg",
+        rawImage: "/assorty-plumgherkin-raw.jpg",
+        shortDescription: "Classic combination of plum tomatoes and whole gherkins",
+        specifications: {
+          size: "Jar, Can",
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"]
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      }
+    ]
   },
 ];
 

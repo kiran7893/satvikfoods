@@ -12,12 +12,13 @@ const quickLinks = [
 ];
 
 const products = [
-  { name: "Premium Gherkins", href: "/products/premium-gherkins" },
+  { name: "Premium Gherkins", href: "/products/gherkins" },
   { name: "Spicy Jalapenos", href: "/products/spicy-jalapenos" },
   { name: "Tender Baby Corn", href: "/products/tender-baby-corn" },
-  { name: "Cherry Tomatoes", href: "/products/cherry-tomatoes" },
+  { name: "Tomatoes", href: "/products/tomatoes" },
   { name: "Red Paprika", href: "/products/red-paprika" },
   { name: "Banderilla", href: "/products/banderilla" },
+  { name: "Premium Assorty", href: "/products/assorty" },
 ];
 
 

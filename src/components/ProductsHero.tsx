@@ -91,7 +91,7 @@ export default function ProductsHero() {
               <div className="flex items-center justify-center w-12 h-12 bg-green-500/20 rounded-full mb-2 mx-auto">
                 <Package className="w-6 h-6 text-green-300" />
               </div>
-              <div className="text-2xl font-bold text-white">6+</div>
+              <div className="text-2xl font-bold text-white">7+</div>
               <div className="text-green-200 text-sm">Premium Products</div>
             </div>
           </motion.div>

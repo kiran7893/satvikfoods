@@ -72,7 +72,7 @@ export default function AboutFeatures() {
               className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl border-8 border-white bg-white"
             >
               <Image
-                src="/image-3.jpg"
+                src="/image-5.jpg"
                 alt="Farm to Fork Center"
                 fill
                 className="object-cover"
