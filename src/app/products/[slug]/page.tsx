@@ -40,9 +40,9 @@ export default function ProductPage({ params }: ProductPageProps) {
   return (
     <main className="min-h-screen pt-20 bg-green-50">
       <ProductHero product={product} />
+      <ProductVariants product={product} onSubProductClick={openModal} />
       <ProductDescription product={product} />
       <ProductHealthBenefits product={product} />
-      <ProductVariants product={product} onSubProductClick={openModal} />
       <RelatedProducts currentProduct={product} allProducts={products} />
       
       <ProductModal
