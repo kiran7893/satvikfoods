@@ -8,6 +8,8 @@ import AboutCTA from "@/components/AboutCTA";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 
+
+
 export default function AboutUsPage() {
   return (
     <main className="min-h-screen pt-16 lg:pt-20 bg-green-50">

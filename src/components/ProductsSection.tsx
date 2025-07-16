@@ -8,41 +8,41 @@ import Image from "next/image";
 
 const products = [
   {
-    name: "Gherkins",
+    name: "Premium Gherkins",
     image: "/gherkin.jpg",
-    description: "Premium pickled gherkins in various sizes and flavors",
-    features: ["FSSAI Certified", "Export Quality", "Multiple Sizes"],
+    description: "Fresh, crisp gherkins preserved to international standards with perfect texture and taste",
+    features: ["Multiple Variants", "Export Quality", "Customizable Recipe"],
     rating: 4.9,
     reviews: 1200
   },
   {
-    name: "Jalapeños",
+    name: "Spicy Jalapenos",
     image: "/jalapeno.jpg", 
-    description: "Spicy jalapeño peppers preserved to perfection",
+    description: "Authentic jalapenos with perfect heat level and flavor, ideal for various culinary applications",
     features: ["Premium Grade", "Consistent Heat", "Long Shelf Life"],
     rating: 4.8,
     reviews: 850
   },
   {
-    name: "Baby Corn",
+    name: "Tender Baby Corn",
     image: "/baby-corn.jpg",
-    description: "Tender baby corn harvested at peak freshness",
+    description: "Sweet, tender baby corn harvested at optimal freshness for maximum nutritional value",
     features: ["Fresh Harvest", "Tender Texture", "Versatile Use"],
     rating: 4.9,
     reviews: 1100
   },
   {
-    name: "Cherry Tomatoes",
-    image: "/cherry-tomato.jpg",
-    description: "Sweet cherry tomatoes bursting with flavor",
-    features: ["Sweet Flavor", "Rich Color", "Premium Quality"],
+    name: "Tomatoes",
+    image: "/tomato.jpg",
+    description: "Premium tomatoes in various varieties, from sweet cherry tomatoes to plump plum tomatoes",
+    features: ["Multiple Varieties", "Rich Flavor", "Premium Quality"],
     rating: 4.7,
     reviews: 750
   },
   {
     name: "Red Paprika",
     image: "/red-paprika.jpg",
-    description: "Vibrant red paprika with intense color and flavor",
+    description: "Vibrant red paprika with rich color and authentic flavor from Karnataka's finest farms",
     features: ["Rich Color", "Intense Flavor", "High Quality"],
     rating: 4.8,
     reviews: 920
@@ -50,10 +50,18 @@ const products = [
   {
     name: "Banderilla",
     image: "/banderilla.jpg",
-    description: "Traditional Spanish tapas-style pickled appetizer",
+    description: "Traditional Spanish tapas-style pickled appetizer with a perfect blend of savory ingredients",
     features: ["Spanish Recipe", "Perfect Bite-Sized", "Authentic Taste"],
     rating: 4.9,
     reviews: 680
+  },
+  {
+    name: "Premium Assorty",
+    image: "/assorty.jpg",
+    description: "Delightful combinations of our premium products, perfectly paired for enhanced culinary experiences",
+    features: ["Curated Combinations", "Perfect Pairings", "Premium Quality"],
+    rating: 4.8,
+    reviews: 580
   }
 ];
 
@@ -116,7 +124,7 @@ export default function ProductsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 lg:justify-items-center"
         >
           {products.map((product, index) => (
             <motion.div
