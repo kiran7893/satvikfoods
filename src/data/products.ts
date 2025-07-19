@@ -836,7 +836,7 @@ export const products: Product[] = [
         shortDescription: "Premium Indian white onions preserved with natural flavor",
         specifications: {
           size: "Jar, Can, Pouch, Barrel",
-          recipe: "Vinegar / Acetic Acid",
+          recipe: "Vinegar / Acetic Acid / Customise",
           packagingOptions: {
             jar: ["500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
@@ -863,7 +863,7 @@ export const products: Product[] = [
         shortDescription: "Premium imported silver skin onions with delicate flavor",
         specifications: {
           size: "Jar, Can, Pouch, Barrel",
-          recipe: "Vinegar / Acetic Acid",
+          recipe: "Vinegar / Acetic Acid / Customise",
           packagingOptions: {
             jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
