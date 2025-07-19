@@ -121,10 +121,10 @@ export const products: Product[] = [
             pouch: ["3100 ml", "5000 ml"],
             barrel: ["240 ltrs", "260 ltrs"],
             icon: {
-              jar: "/svg/jar.svg",
-              can: "/svg/open-can.svg",
-              pouch: "/svg/pouch.svg",
-              barrel: "/svg/barrel.svg"
+              jar: "/svg/jar.png",
+              can: "/svg/can.png",
+              pouch: "/svg/pouch.png",
+              barrel: "/svg/barell.png"
             }
           }
         },
@@ -149,10 +149,10 @@ export const products: Product[] = [
             pouch: ["3100 ml", "5000 ml"],
             barrel: ["240 ltrs", "260 ltrs"],
             icon: {
-              jar: "/svg/jar.svg",
-              can: "/svg/open-can.svg",
-              pouch: "/svg/pouch.svg",
-              barrel: "/svg/barrel.svg"
+              jar: "/svg/jar.png",
+              can: "/svg/can.png",
+              pouch: "/svg/pouch.png",
+              barrel: "/svg/barell.png"
             }
           }
         },
@@ -177,10 +177,10 @@ export const products: Product[] = [
             pouch: ["3100 ml", "5000 ml"],
             barrel: ["240 ltrs", "260 ltrs"],
             icon: {
-              jar: "/svg/jar.svg",
-              can: "/svg/open-can.svg",
-              pouch: "/svg/pouch.svg",
-              barrel: "/svg/barrel.svg"
+              jar: "/svg/jar.png",
+              can: "/svg/can.png",
+              pouch: "/svg/pouch.png",
+              barrel: "/svg/barell.png"
             }
           }
         },
@@ -207,8 +207,8 @@ export const products: Product[] = [
             jar: ["500 ml", "720 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
             icon: {
-              jar: "/svg/jar.svg",
-              can: "/svg/open-can.svg"
+              jar: "/svg/jar.png",
+              can: "/svg/can.png"
             }
           }
         },
@@ -235,8 +235,8 @@ export const products: Product[] = [
             jar: ["500 ml", "720 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
             icon: {
-              jar: "/svg/jar.svg",
-              can: "/svg/open-can.svg"
+              jar: "/svg/jar.png",
+              can: "/svg/can.png"
             }
           }
         },
@@ -265,10 +265,10 @@ export const products: Product[] = [
             pouch: ["3100 ml", "5000 ml"],
             barrel: ["240 ltrs", "260 ltrs"],
             icon: {
-              jar: "/svg/jar.svg",
-              can: "/svg/open-can.svg",
-              pouch: "/svg/pouch.svg",
-              barrel: "/svg/barrel.svg"
+              jar: "/svg/jar.png",
+              can: "/svg/can.png",
+              pouch: "/svg/pouch.png",
+              barrel: "/svg/barell.png"
             }
           }
         },
@@ -343,10 +343,10 @@ export const products: Product[] = [
             pouch: ["3100 ml", "5000 ml"],
             barrel: ["240 ltrs", "260 ltrs"],
             icon: {
-              jar: "/svg/jar.svg",
-              can: "/svg/open-can.svg",
-              pouch: "/svg/pouch.svg",
-              barrel: "/svg/barrel.svg"
+              jar: "/svg/jar.png",
+              can: "/svg/can.png",
+              pouch: "/svg/pouch.png",
+              barrel: "/svg/barell.png"
             }
           }
         },
@@ -370,10 +370,10 @@ export const products: Product[] = [
             pouch: ["3100 ml", "5000 ml"],
             barrel: ["240 ltrs", "260 ltrs"],
             icon: {
-              jar: "/svg/jar.svg",
-              can: "/svg/open-can.svg",
-              pouch: "/svg/pouch.svg",
-              barrel: "/svg/barrel.svg"
+              jar: "/svg/jar.png",
+              can: "/svg/can.png",
+              pouch: "/svg/pouch.png",
+              barrel: "/svg/barell.png"
             }
           }
         },
@@ -447,9 +447,9 @@ export const products: Product[] = [
             can: ["850 ml", "3100 ml", "4250 ml"],
             barrel: ["240 ltrs", "260 ltrs"],
             icon: {
-              jar: "/svg/jar.svg",
-              can: "/svg/open-can.svg",
-              barrel: "/svg/barrel.svg"
+              jar: "/svg/jar.png",
+              can: "/svg/can.png",
+              barrel: "/svg/barell.png"
             }
           }
         },
@@ -523,8 +523,8 @@ export const products: Product[] = [
               jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
               can: ["850 ml", "3100 ml", "4250 ml"],
               icon: {
-                jar: "/svg/jar.svg",
-                can: "/svg/open-can.svg"
+                jar: "/svg/jar.png",
+                can: "/svg/can.png"
               }
             }
           },
@@ -546,8 +546,8 @@ export const products: Product[] = [
               jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
               can: ["850 ml", "3100 ml", "4250 ml"],
               icon: {
-                jar: "/svg/jar.svg",
-                can: "/svg/open-can.svg"
+                jar: "/svg/jar.png",
+                can: "/svg/can.png"
               }
             }
           },
@@ -569,8 +569,8 @@ export const products: Product[] = [
               jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
               can: ["850 ml", "3100 ml", "4250 ml"],
               icon: {
-                jar: "/svg/jar.svg",
-                can: "/svg/open-can.svg"
+                jar: "/svg/jar.png",
+                can: "/svg/can.png"
               }
             }
           },
@@ -743,8 +743,8 @@ export const products: Product[] = [
             jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
             icon: {
-              jar: "/svg/jar.svg",
-              can: "/svg/open-can.svg"
+              jar: "/svg/jar.png",
+              can: "/svg/can.png"
             }
           }
         },
@@ -766,8 +766,114 @@ export const products: Product[] = [
             jar: ["500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
             can: ["850 ml", "3100 ml", "4250 ml"],
             icon: {
-              jar: "/svg/jar.svg",
-              can: "/svg/open-can.svg"
+              jar: "/svg/jar.png",
+              can: "/svg/can.png"
+            }
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      }
+    ]
+  },
+  {
+    id: "8",
+    slug: "onions",
+    name: "Onions",
+    image: "/onion.jpg",
+    shortDescription:
+      "Premium Indian white onions with exceptional flavor and texture, perfect for various culinary applications",
+    fullDescription:
+      "Our premium Indian white onions are carefully selected and processed to deliver exceptional flavor and texture. These versatile onions are known for their mild, sweet taste and firm texture, making them ideal for a wide range of culinary applications. Grown using sustainable farming practices and preserved using traditional methods, our white onions maintain their natural flavor and nutritional benefits throughout processing.",
+    features: [
+      "Mild, sweet flavor profile",
+      "Firm, crisp texture",
+      "Premium quality selection",
+      "Natural preservation methods",
+      "Extended shelf life",
+      "International quality standards",
+      "Versatile culinary applications",
+    ],
+    uses: [
+      "Fresh salads and garnishes",
+      "Cooking and sautéing",
+      "Pickle manufacturing",
+      "Restaurant and food service",
+      "Retail food products",
+      "International cuisine",
+      "Preserved preparations",
+    ],
+    healthBenefits: [
+      {
+        icon: "🫀",
+        title: "Heart Health",
+        description: "Contains compounds that support cardiovascular health",
+      },
+      {
+        icon: "🦠",
+        title: "Immune Support",
+        description: "Rich in antioxidants that boost immune system",
+      },
+      {
+        icon: "🩸",
+        title: "Blood Sugar Control",
+        description: "May help regulate blood sugar levels",
+      },
+      {
+        icon: "💊",
+        title: "Anti-inflammatory",
+        description: "Natural anti-inflammatory properties",
+      },
+    ],
+    subProducts: [
+      {
+        id: "indian-white-onion",
+        name: "Indian White Onion",
+        image: "/indian-white-onion.jpg",
+        rawImage: "/indian-white-onion-raw.jpg",
+        shortDescription: "Premium Indian white onions preserved with natural flavor",
+        specifications: {
+          size: "Jar, Can, Pouch, Barrel",
+          recipe: "Vinegar / Acetic Acid",
+          packagingOptions: {
+            jar: ["500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            pouch: ["3100 ml", "5000 ml"],
+            barrel: ["240 ltrs", "260 ltrs"],
+            icon: {
+              jar: "/svg/jar.png",
+              can: "/svg/can.png",
+              pouch: "/svg/pouch.png",
+              barrel: "/svg/barell.png"
+            }
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      },
+      {
+        id: "imported-silver-skin-onion",
+        name: "Imported Silver Skin Onion",
+        image: "/indian-silver-onion.jpg",
+        rawImage: "/indian-silver-onion-raw.jpg",
+        shortDescription: "Premium imported silver skin onions with delicate flavor",
+        specifications: {
+          size: "Jar, Can, Pouch, Barrel",
+          recipe: "Vinegar / Acetic Acid",
+          packagingOptions: {
+            jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            pouch: ["3100 ml", "5000 ml"],
+            barrel: ["240 ltrs", "260 ltrs"],
+            icon: {
+              jar: "/svg/jar.png",
+              can: "/svg/can.png",
+              pouch: "/svg/pouch.png",
+              barrel: "/svg/barell.png"
             }
           }
         },
