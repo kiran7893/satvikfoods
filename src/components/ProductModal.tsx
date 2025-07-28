@@ -156,7 +156,13 @@ export default function ProductModal({
                     <div key={key} className="flex items-center gap-4 py-3">
                       <span className={`w-20 font-bold ${color}`}>{label}</span>
                       {icon && (
-                        <img src={icon} alt={label + ' icon'} className="w-10 h-10 object-contain" />
+                        <Image 
+                          src={icon} 
+                          alt={label + ' icon'} 
+                          width={40}
+                          height={40}
+                          className="object-contain" 
+                        />
                       )}
                       <span className="text-gray-700 text-sm">{sizes.join(', ')}</span>
                     </div>
