@@ -47,10 +47,9 @@ export default function Navbar() {
               />
             </motion.div>
             <div className="flex flex-col">
-              <span className="font-bold text-3xl lg:text-2xl xl:text-3xl text-green-600 whitespace-nowrap drop-shadow-sm">
+              <span className="font-bold text-3xl lg:text-3xl xl:text-3xl text-green-600 whitespace-nowrap drop-shadow-sm">
                 Satvic Foods
               </span>
-             
             </div>
           </Link>
         </motion.div>

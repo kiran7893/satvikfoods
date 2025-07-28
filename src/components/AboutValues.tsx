@@ -51,7 +51,7 @@ const achievements = [
   {
     icon: Globe,
     title: "Global Presence",
-    description: "Serving customers across 50+ countries worldwide",
+    description: "Serving customers across 24+ countries worldwide",
     image: "/aboutus-13.jpg",
   },
   {

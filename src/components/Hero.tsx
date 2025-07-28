@@ -25,7 +25,7 @@ const heroSlides = [
     alt: "Fresh Vegetables Background",
     badge: "100% Sustainable Farming",
     title: "Sourcing Straight from Farmers",
-    subtitle: "Premium Quality Vegetables",
+    subtitle: "Premium quality Gherkins and Allied Vegetables",
     description:
       "Our wide range of premium vegetables is sourced directly from farmers, helping alleviate poverty and improve rural economies.",
     icon: Leaf,
@@ -59,7 +59,7 @@ const heroSlides = [
     title: "Farm to Fork Journey",
     subtitle: "From Field to Your Table",
     description:
-      "Farm to fork - Our preserved vegetables are processed from top-quality produce, ensuring 100% contamination-free products.",
+      "Our preserved vegetables are processed from top-quality produce, ensuring 100% contamination-free products.",
     icon: Award,
     features: [
       "Farm Fresh",
@@ -72,10 +72,10 @@ const heroSlides = [
     src: "/image-4.jpg",
     alt: "Quality Vegetables",
     badge: "Global Distribution",
-    title: "Exporting to 50+ Countries",
+    title: "Exporting to 24+ Countries",
     subtitle: "International Standards",
     description:
-      "Our products are trusted in Europe, Asia, the Middle East, and Africa, adhering to global quality standards.",
+      "Our products are trusted in America, Europe, Russia, Asia, Australia, and Africa, adhering to global quality standards.",
     icon: Globe,
     features: [
       "Global Reach",

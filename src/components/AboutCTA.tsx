@@ -32,7 +32,7 @@ export default function AboutCTA() {
           </h2>
           <p className="text-xl text-green-100 max-w-2xl mx-auto">
             Experience the quality, reliability, and sustainability that has
-            made us the preferred choice for customers across 50+ countries
+            made us the preferred choice for customers across 24+ countries
             worldwide.
           </p>
           
@@ -43,7 +43,7 @@ export default function AboutCTA() {
               <div className="text-green-200 text-sm">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">50+</div>
+              <div className="text-2xl font-bold text-white">24+</div>
               <div className="text-green-200 text-sm">Countries Served</div>
             </div>
             <div className="text-center">

@@ -80,7 +80,7 @@ export default function AboutJourney() {
                 height={300}
                 className="rounded-xl"
               />
-              <div className="absolute bottom-4 left-4 text-white">
+              <div className="absolute bottom-4 left-4 text-white px-4 py-2 rounded-lg bg-gray-800/80">
                 <h3 className="text-xl font-semibold">Processing Excellence</h3>
                 <p className="text-sm">State-of-the-art facilities</p>
               </div>
@@ -88,15 +88,15 @@ export default function AboutJourney() {
 
             <div className="relative">
               <Image
-                src="/aboutus-7.jpg"
+                src="/jar-line.jpg"
                 alt="Global Distribution"
                 width={500}
                 height={300}
                 className="rounded-xl"
               />
-              <div className="absolute bottom-4 left-4 text-white">
+              <div className="absolute bottom-4 left-4 text-white px-4 py-2 rounded-lg bg-gray-800/80">
                 <h3 className="text-xl font-semibold">Global Distribution</h3>
-                <p className="text-sm">Reaching 50+ countries worldwide</p>
+                <p className="text-sm">Reaching 24+ countries worldwide</p>
               </div>
             </div>
           </motion.div>

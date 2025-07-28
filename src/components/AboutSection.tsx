@@ -27,7 +27,7 @@ const features = [
   {
     icon: Globe,
     title: "Global Reach",
-    description: "Exporting to 50+ countries across continents",
+    description: "Exporting to 24+ countries across America, Europe, Russia, Asia, Australia, and Africa",
   },
   {
     icon: Factory,
@@ -123,7 +123,7 @@ export default function AboutSection() {
               <div className="text-sm text-gray-600">Years Experience</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">50+</div>
+                    <div className="text-2xl font-bold text-green-600">24+</div>
                     <div className="text-sm text-gray-600">Countries</div>
                   </div>
                   <div className="text-center">
@@ -173,7 +173,7 @@ export default function AboutSection() {
               {[
                 "FSSAI certified processing facilities",
                 "Direct partnership with 4000+ farmers",
-                "Export to 50+ countries worldwide" 
+                "Export to 24+ countries worldwide" 
               ].map((feature, index) => (
                 <motion.div
                   key={feature}
