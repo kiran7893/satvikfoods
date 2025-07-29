@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Lobster } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
@@ -7,6 +7,12 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta-sans",
   weight: ["300", "400", "500", "600", "700", "800"],
+});
+
+const lobster = Lobster({
+  subsets: ["latin"],
+  variable: "--font-lobster",
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -109,7 +115,7 @@ export default function RootLayout({
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body
-        className={`${plusJakartaSans.variable} font-sans antialiased bg-gradient-organic texture-organic text-gray-900 min-h-screen relative overflow-x-hidden`}
+        className={`${plusJakartaSans.variable} ${lobster.variable} font-sans antialiased bg-gradient-organic texture-organic text-gray-900 min-h-screen relative overflow-x-hidden`}
       >
         <div className="relative z-10">
           <Navbar />

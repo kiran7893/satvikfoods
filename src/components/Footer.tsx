@@ -19,6 +19,7 @@ const products = [
   { name: "Red Paprika", href: "/products/red-paprika" },
   { name: "Banderilla", href: "/products/banderilla" },
   { name: "Premium Assorty", href: "/products/assorty" },
+  { name: "Onions", href: "/products/onions" },
 ];
 
 
