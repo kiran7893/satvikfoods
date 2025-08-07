@@ -123,7 +123,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-screen overflow-hidden ">
       {/* Embla Carousel */}
       <div className="h-full" ref={emblaRef}>
         <div className="flex h-full">

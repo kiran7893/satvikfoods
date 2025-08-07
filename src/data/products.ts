@@ -679,6 +679,54 @@ export const products: Product[] = [
         description: "Natural minerals from pickled vegetables",
       },
     ],
+    subProducts: [
+      {
+        id: "banderilla-whole-gherkin",
+        name: "Whole Gherkin Banderilla",
+        image: "/banderilla-whole-gherkin.png",
+        rawImage: "/banderilla-whole-gherkin-raw.jpg",
+        shortDescription: "Traditional banderilla with whole gherkins for authentic Spanish tapas experience",
+        specifications: {
+          size: "Jar, Can",
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            icon: {
+              jar: "/svg/jar.png",
+              can: "/svg/can.png"
+            }
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      },
+      {
+        id: "banderilla-sliced-gherkin",
+        name: "Sliced Gherkin Banderilla",
+        image: "/banderilla-sliced-gherkin.png",
+        rawImage: "/banderilla-sliced-gherkin-raw.png",
+        shortDescription: "Banderilla with sliced gherkins for enhanced texture and flavor distribution",
+        specifications: {
+          size: "Jar, Can",
+          recipe: "Vinegar / Acetic Acid / Customise",
+          packagingOptions: {
+            jar: ["370 ml", "375 ml", "500 ml", "720 ml", "1000 ml", "1415 ml", "2000 ml"],
+            can: ["850 ml", "3100 ml", "4250 ml"],
+            icon: {
+              jar: "/svg/jar.png",
+              can: "/svg/can.png"
+            }
+          }
+        },
+        pricing: {
+          minOrder: "1000 kg",
+          bulkPricing: "Contact for bulk pricing"
+        }
+      }
+    ]
   },
   {
     id: "7",

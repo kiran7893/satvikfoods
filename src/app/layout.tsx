@@ -15,6 +15,7 @@ const lobster = Lobster({
   weight: ["400"],
 });
 
+
 export const metadata: Metadata = {
   title: {
     default: "Satvic Foods | Premium Gherkins & Vegetables Exporter",

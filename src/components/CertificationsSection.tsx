@@ -47,6 +47,12 @@ const certificates = [
     title: "Unilever",
     description: "Unilever approved supplier standards"
   },
+  {
+    src: "/certificate-8.jpg",
+    alt: "Farm Sustainability Assessment Certification",
+    title: "Farm Sustainability Assessment",
+    description: "SAI Platform sustainability standards"
+  },
 ];
 
 
@@ -139,42 +145,40 @@ export default function CertificationsSection() {
             ))}
           </motion.div>
 
-          {/* Second Row - 3 Certificates Centered */}
+          {/* Second Row - 4 Certificates */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
             viewport={{ once: true }}
-            className="flex justify-center"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl">
-              {certificates.slice(4, 7).map((cert, index) => (
-                <motion.div
-                  key={index + 4}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="glass-card p-6 rounded-2xl hover-lift group"
-                >
-                  {/* Certificate Image */}
-                  <div className="relative h-48 mb-4 rounded-xl overflow-hidden bg-white shadow-md">
-                    <Image
-                      src={cert.src}
-                      alt={cert.alt}
-                      fill
-                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  
-                  {/* Certificate Info */}
-                  <div className="text-center">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">{cert.title}</h3>
-                    <p className="text-sm text-gray-600">{cert.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            {certificates.slice(4, 8).map((cert, index) => (
+              <motion.div
+                key={index + 4}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+                viewport={{ once: true }}
+                className="glass-card p-6 rounded-2xl hover-lift group"
+              >
+                {/* Certificate Image */}
+                <div className="relative h-48 mb-4 rounded-xl overflow-hidden bg-white shadow-md">
+                  <Image
+                    src={cert.src}
+                    alt={cert.alt}
+                    fill
+                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                
+                {/* Certificate Info */}
+                <div className="text-center">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{cert.title}</h3>
+                  <p className="text-sm text-gray-600">{cert.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
 

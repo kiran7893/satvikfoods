@@ -74,7 +74,7 @@ export default function GallerySection() {
   };
 
   return (
-    <section className="bg-green-50 relative overflow-hidden">
+    <section className="bg-green-50 pb-10 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-20 w-72 h-72 bg-green-200/20 rounded-full blur-3xl animate-float"></div>

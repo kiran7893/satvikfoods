@@ -33,8 +33,8 @@ export default function Home() {
       <Hero />
       <AboutSection />
       <ProductsSection />
-      <GallerySection />
       <CertificationsSection />
+      <GallerySection />
       <Footer />
     </main>
   );
