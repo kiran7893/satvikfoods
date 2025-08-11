@@ -12,7 +12,7 @@ const companyStats = [
     description: "Trusted empanelled farmers following sustainable practices",
   },
   {
-    number: "50+",
+    number: "24+",
     label: "Countries Served",
     icon: Globe,
     description: "Exporting premium products to global markets",
@@ -63,7 +63,7 @@ export default function AboutHero() {
 
           <p className="text-xl text-green-100 max-w-3xl mx-auto leading-relaxed">
             India&apos;s leading exporter of premium pickled gherkins and
-            vegetables, bringing authentic flavors to over 50 countries
+            vegetables, bringing authentic flavors to over 24 countries
             worldwide through sustainable farming practices.
           </p>
         </motion.div>

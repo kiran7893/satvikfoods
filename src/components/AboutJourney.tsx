@@ -19,7 +19,7 @@ const journeySteps = [
   },
   {
     title: "Global Recognition",
-    description: "Our products reach over 50 countries, earning trust for quality and reliability.",
+    description: "Our products reach over 24 countries, earning trust for quality and reliability.",
     image: "/aboutus-4.jpg",
     icon: Globe,
   },
