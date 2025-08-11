@@ -59,7 +59,7 @@ const heroSlides = [
     title: "Farm to Fork Journey",
     subtitle: "From Field to Your Table",
     description:
-      "Our preserved vegetables are processed from top-quality produce, ensuring 100% contamination-free products.",
+      "Our preserved vegetables are processed from top-quality produce, ensuring safe quality products.",
     icon: Award,
     features: [
       "Farm Fresh",
